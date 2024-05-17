@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "trailer webapp",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hamza9199/TrailerFlix.git"
+  },
+  "author": "Hamza, Aldina, Dzan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hamza9199/TrailerFlix/issues"
+  },
+  "homepage": "https://github.com/Hamza9199/TrailerFlix#readme",
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.6.2",
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.0"
+  }
+}
