@@ -3,6 +3,9 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const autentifikacijaRuter = require('./rute/autentifikacija');
+const korisniciRuter = require('./rute/korisnici');
+const filmoviRuter = require('./rute/filmovi');
+const listaRuter = require('./rute/liste');
 
 
 dotenv.config();
@@ -18,6 +21,10 @@ mongoose.connect(process.env.mongo_url, {
 
 app.use(express.json());
 app.use('/server/autentifikacija', autentifikacijaRuter);
+app.use('/server/korisnici', korisniciRuter);
+app.use('/server/filmovi', filmoviRuter);
+app.use('/server/liste', listaRuter);
+
 
 app.listen(8888, () => {
     console.log('Server is running on port 8888');

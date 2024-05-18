@@ -32,4 +32,4 @@ const KorisnikSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 
-module.exports = mongoose.model('Korisnik', KorisnikSchema);
+module.exports = mongoose.models.Korisnik || mongoose.model('Korisnik', KorisnikSchema);
