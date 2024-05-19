@@ -1,6 +1,10 @@
-import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
+import { ArrowDropDown, Notifications, Search } from "@mui/icons-material";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import style from "./Navbar.module.css";
+import logo from '../../assets/g3.png';
+import template from '../../assets/template.avif';
+
 
 
 function Navbar(){
@@ -17,16 +21,16 @@ function Navbar(){
             <div className="container">
                 <div className="left">
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-                        alt=""
+                        src={logo}
+                        alt="Logo"
                     />
                     <Link to="/" className="link">
                         <span>Home</span>
                     </Link>
-                    <Link to="/series" className="link">
+                    <Link to="/serije" className="link">
                         <span className="navbarmainLinks">Serije</span>
                     </Link>
-                    <Link to="/movies" className="link">
+                    <Link to="/filmovi" className="link">
                         <span className="navbarmainLinks">Filmovi</span>
                     </Link>
                     <span>Novo i popularno</span>
@@ -37,8 +41,8 @@ function Navbar(){
                     <span>Djecije</span>
                     <Notifications className="icon" />
                     <img
-                        src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                        alt=""
+                        src={template}
+                        alt="template"
                     />
                     <div className="profile">
                         <ArrowDropDown className="icon" />

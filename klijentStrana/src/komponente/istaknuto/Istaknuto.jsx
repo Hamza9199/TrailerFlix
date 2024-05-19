@@ -1,9 +1,11 @@
-import { InfoOutlined, PlayArrow } from "@material-ui/icons";
+import { InfoOutlined, PlayArrow } from '@mui/icons-material';
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import style from "./Istaknuto.module.css";
 
 
-export default function Featured({ tip, setGenre }) {
+
+export default function Istaknuto({ tip, setGenre }) {
     const [content, setContent] = useState({});
 
     useEffect(() => {

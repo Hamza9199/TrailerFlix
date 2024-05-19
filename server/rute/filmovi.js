@@ -70,7 +70,7 @@ ruter.get('/random', async (zahtjev, odgovor) => {
                 { $sample: { size: 1 } }
             ]);
         }
-        else {
+        else if(tip === 'filmovi') {
             film = await Film.aggregate([
                 { $match: { isSeries: false } },
                 { $sample: { size: 1 } }

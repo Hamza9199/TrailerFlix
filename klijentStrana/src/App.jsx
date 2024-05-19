@@ -4,41 +4,31 @@ import Register from "./stranice/register/Register";
 import Login from "./stranice/login/Login";
 import Watch from "./stranice/watch/Watch";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
 } from "react-router-dom";
 
 
 function App () {
-  const user = false;
-  return (
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            {user ? <Home /> : <Redirect to="/register" />}
-          </Route>
-          <Route path="/register">
-            {!user ? <Register /> : <Redirect to="/" />}
-          </Route>
-          <Route path="/login">{!user ? <Login /> : <Redirect to="/" />}</Route>
-          {user && (
-              <>
-                <Route path="/filmovi">
-                  <Home type="film" />
-                </Route>
-                <Route path="/serije">
-                  <Home type="serija" />
-                </Route>
-                <Route path="/watch">
-                  <Watch />
-                </Route>
-              </>
-          )}
-        </Switch>
-      </Router>
-  )
+    const user = true;
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={user ? <Home /> : <Navigate to="/register" />} />
+                <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />
+                <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+                {user && (
+                    <>
+                        <Route path="/filmovi" element={<Home type="film" />} />
+                        <Route path="/serije" element={<Home type="serija" />} />
+                        <Route path="/watch" element={<Watch />} />
+                    </>
+                )}
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

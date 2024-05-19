@@ -1,8 +1,10 @@
 import Navbar from "../../komponente/navbar/Navbar";
 import Istaknuto from "../../komponente/istaknuto/Istaknuto";
 import List from "../../komponente/lista/Lista";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import style from "./Home.module.css";
+
 
 function Home ({ tip }) {
     const [lists, setLists] = useState([]);
@@ -12,7 +14,7 @@ function Home ({ tip }) {
         const getRandomLists = async () => {
             try {
                 const res = await axios.get(
-                    `lista${tip ? "?type=" + tip : ""}${
+                    `liste${tip ? "?type=" + tip : ""}${
                         genre ? "&genre=" + genre : ""
                     }`,
                     {

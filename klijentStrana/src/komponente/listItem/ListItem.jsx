@@ -3,10 +3,13 @@ import {
     Add,
     ThumbUpAltOutlined,
     ThumbDownOutlined,
-} from "@material-ui/icons";
-import { useEffect, useState } from "react";
+} from "@mui/icons-material";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import style from "./ListItem.module.css";
+
+
 
 export default function ListItem({ index, item }) {
     const [isHovered, setIsHovered] = useState(false);
