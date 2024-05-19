@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-
+import Home from './stranice/home/Home'
 
 
 
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-
+    <Home/>
     </>
   )
 }
