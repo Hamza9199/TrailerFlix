@@ -27,15 +27,15 @@ export default function List({ list }) {
         }
     };
     return (
-        <div className="list">
-            <span className="listTitle">{list.title}</span>
-            <div className="wrapper">
+        <div className={style.list}>
+            <span className={style.listTitle}>{list.title}</span>
+            <div className={style.wrapper}>
                 <ArrowBackIosOutlined
                     className="sliderArrow left"
                     onClick={() => handleClick("left")}
                     style={{ display: !isMoved && "none" }}
                 />
-                <div className="container" ref={listRef}>
+                <div className={style.container} ref={listRef}>
                     {list.content.map((item, i) => (
                         <ListItem index={i} item={item} />
                     ))}

@@ -18,35 +18,35 @@ function Navbar(){
 
     return (
         <div className={isScrolled ? "navbar scrolled" : "navbar"}>
-            <div className="container">
-                <div className="left">
+            <div className={style.container}>
+                <div className={style.left}>
                     <img
                         src={logo}
                         alt="Logo"
                     />
-                    <Link to="/" className="link">
+                    <Link to="/" className={style.link}>
                         <span>Home</span>
                     </Link>
-                    <Link to="/serije" className="link">
-                        <span className="navbarmainLinks">Serije</span>
+                    <Link to="/serije" className={style.link}>
+                        <span className={style.navbarmainLinks}>Serije</span>
                     </Link>
-                    <Link to="/filmovi" className="link">
-                        <span className="navbarmainLinks">Filmovi</span>
+                    <Link to="/filmovi" className={style.link}>
+                        <span className={style.navbarmainLinks}>Filmovi</span>
                     </Link>
                     <span>Novo i popularno</span>
                     <span>Moja Lista</span>
                 </div>
-                <div className="right">
-                    <Search className="icon" />
+                <div className={style.right}>
+                    <Search className={style.icon} />
                     <span>Djecije</span>
-                    <Notifications className="icon" />
+                    <Notifications className={style.icon} />
                     <img
                         src={template}
                         alt="template"
                     />
-                    <div className="profile">
-                        <ArrowDropDown className="icon" />
-                        <div className="options">
+                    <div className={style.profile}>
+                        <ArrowDropDown className={style.icon} />
+                        <div className={style.options}>
                             <span>Postavke</span>
                             <span>Odjava</span>
                         </div>

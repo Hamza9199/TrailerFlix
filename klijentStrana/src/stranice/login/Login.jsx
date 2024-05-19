@@ -13,17 +13,17 @@ export default function Login() {
         e.preventDefault();
     };
     return (
-        <div className="login">
-            <div className="top">
-                <div className="wrapper">
+        <div className={style.login}>
+            <div className={style.top}>
+                <div className={style.wrapper}>
                     <img
-                        className="logo"
+                        className={style.logo}
                         src={logo}
                         alt="Logo"
                     />
                 </div>
             </div>
-            <div className="container">
+            <div className={style.container}>
                 <form>
                     <h1>Prijava</h1>
                     <input
@@ -36,7 +36,7 @@ export default function Login() {
                         placeholder="Sifra"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button className="loginButton" onClick={handleLogin}>
+                    <button className={style.loginButton} onClick={handleLogin}>
                         Prijavi se
                     </button>
                     <span>

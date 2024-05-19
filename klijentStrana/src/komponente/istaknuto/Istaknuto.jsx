@@ -2,7 +2,7 @@ import { InfoOutlined, PlayArrow } from '@mui/icons-material';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import style from "./Istaknuto.module.css";
-
+import template from "../../assets/template.avif";
 
 
 export default function Istaknuto({ tip, setGenre }) {
@@ -27,9 +27,9 @@ export default function Istaknuto({ tip, setGenre }) {
 
     console.log(content);
     return (
-        <div className="istaknuto">
+        <div className={style.featured}>
             {tip && (
-                <div className="kategorija">
+                <div className={style.category}>
                     <span>{tip === "movies" ? "Filmovi" : "Serije"}</span>
                     <select
                         name="genre"
@@ -53,16 +53,16 @@ export default function Istaknuto({ tip, setGenre }) {
                     </select>
                 </div>
             )}
-            <img src={content.img} alt="" />
-            <div className="info">
+            <img src={template} alt="" />
+            <div className={style.info}>
                 <img src={content.imgTitle} alt="" />
-                <span className="desc">{content.desc}</span>
-                <div className="buttons">
-                    <button className="play">
+                <span className={style.desc}>{content.desc}</span>
+                <div className={style.buttons}>
+                    <button className={style.play}>
                         <PlayArrow />
                         <span>Play</span>
                     </button>
-                    <button className="more">
+                    <button className={style.more}>
                         <InfoOutlined />
                         <span>Info</span>
                     </button>

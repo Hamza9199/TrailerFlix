@@ -19,35 +19,35 @@ export default function Register() {
 
 
     return (
-        <div className="register">
-            <div className="top">
-                <div className="wrapper">
+        <div className={style.register}>
+            <div className={style.top}>
+                <div className={style.wrapper}>
                     <img
-                        className="logo"
+                        className={style.logo}
                         src={logo}
                         alt="logo"
                     />
-                    <button className="loginButton">Prijavi se</button>
+                    <button className={style.loginButton} >Prijavi se</button>
                 </div>
             </div>
-            <div className="container">
+            <div className={style.container}>
                 <h1>Beskonacno trejlera bilo kojeg žanra filma ili serije.</h1>
                 <h2>Gledaj svaki dan na TrailerFlix.</h2>
                 <p>
                     Idemo! Unesi svoju email adresu da se registruješ.
                 </p>
                 {!email ? (
-                    <div className="input">
+                    <div className={style.input}>
                         <input type="email" placeholder="email adresa" ref={emailRef} />
-                        <button className="registerButton">
+                        <button className={style.registerButton}>
                             Krenimo!
                         </button>
                     </div>
                 ) : (
-                    <form className="input">
+                    <form className={style.input}>
                         <input type="username" placeholder="username" ref={usernameRef} />
                         <input type="password" placeholder="sifra" ref={passwordRef} />
-                        <button className="registerButton">
+                        <button className={style.registerButton}>
                             Počni!
                         </button>
                     </form>

@@ -33,7 +33,7 @@ function Home ({ tip }) {
     }, [tip, genre]);
 
     return (
-        <div className="home">
+        <div className={style.home}>
             <Navbar />
             <Istaknuto tip={tip} setGenre={setGenre} />
             {lists.map((list) => (

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Home from './stranice/home/Home'
-
+import NewUser from './stranice/newUser/NewUser'
 
 
 
@@ -10,7 +9,7 @@ function App() {
 
   return (
     <>
-    <Home/>
+    <NewUser/>
     </>
   )
 }

@@ -35,7 +35,7 @@ export default function ListItem({ index, item }) {
     return (
         <Link to={{ pathname: "/watch", movie: movie }}>
             <div
-                className="listItem"
+                className={style.listItem}
                 style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
@@ -44,20 +44,20 @@ export default function ListItem({ index, item }) {
                 {isHovered && (
                     <>
                         <video src={movie.trailer} autoPlay={true} loop />
-                        <div className="itemInfo">
-                            <div className="icons">
-                                <PlayArrow className="icon" />
+                        <div className={style.itemInfo}>
+                            <div className={style.icons}>
+                                <PlayArrow className={style.icon} />
                                 <Add className="icon" />
-                                <ThumbUpAltOutlined className="icon" />
-                                <ThumbDownOutlined className="icon" />
+                                <ThumbUpAltOutlined className={style.icon} />
+                                <ThumbDownOutlined className={style.icon} />
                             </div>
-                            <div className="itemInfoTop">
+                            <div className={style.itemInfoTop}>
                                 <span>{movie.duration}</span>
-                                <span className="limit">+{movie.limit}</span>
+                                <span className={style.limit}>+{movie.limit}</span>
                                 <span>{movie.year}</span>
                             </div>
-                            <div className="desc">{movie.desc}</div>
-                            <div className="genre">{movie.genre}</div>
+                            <div className={style.desc}>{movie.desc}</div>
+                            <div className={style.genre}>{movie.genre}</div>
                         </div>
                     </>
                 )}
