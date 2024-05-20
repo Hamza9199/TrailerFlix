@@ -1,11 +1,9 @@
 const ruter = require('express').Router();
 const Film = require('../pogledi/Film');
 const verifikacija = require('../verifikacijaTokena');
-const skipVerifikacija = require('../skipTokenVerifikacija');
 
-
-ruter.post('/dodaj', skipVerifikacija, async (zahtjev, odgovor) => {
-    if (zahtjev.korisnik.isAdmin) {
+ruter.post('/dodaj', verifikacija, async (zahtjev, odgovor) => {
+    if (zahtjev.korisnik && zahtjev.korisnik.isAdmin) {
         const noviFilm = new Film(zahtjev.body);
         try {
             const sacuvaniFilm = await noviFilm.save();
@@ -13,44 +11,40 @@ ruter.post('/dodaj', skipVerifikacija, async (zahtjev, odgovor) => {
         } catch (greska) {
             odgovor.status(400).json(greska);
         }
-    }
-    else {
+    } else {
         odgovor.status(403).json('Nemate pristup');
     }
+});
 
-})
-
-
-ruter.put('/:id', skipVerifikacija, async (zahtjev, odgovor) => {
-    if (zahtjev.korisnik.isAdmin) {
+ruter.put('/:id', verifikacija, async (zahtjev, odgovor) => {
+    if (zahtjev.korisnik && zahtjev.korisnik.isAdmin) {
         try {
-            const azuriraniFilm = await Film.findByIdAndUpdate(zahtjev.params.id, {
-                $set: zahtjev.body,
-            }, { new: true });
+            const azuriraniFilm = await Film.findByIdAndUpdate(
+                zahtjev.params.id,
+                { $set: zahtjev.body },
+                { new: true }
+            );
             odgovor.status(200).json(azuriraniFilm);
         } catch (greska) {
             odgovor.status(500).json(greska);
         }
-    }
-    else {
+    } else {
         odgovor.status(403).json('Nemate pristup');
     }
-})
+});
 
-
-ruter.delete('/:id', skipVerifikacija, async (zahtjev, odgovor) => {
-    if (zahtjev.korisnik.isAdmin) {
+ruter.delete('/:id', verifikacija, async (zahtjev, odgovor) => {
+    if (zahtjev.korisnik && zahtjev.korisnik.isAdmin) {
         try {
             await Film.findByIdAndDelete(zahtjev.params.id);
             odgovor.status(200).json('Film je obrisan');
         } catch (greska) {
             odgovor.status(500).json(greska);
         }
-    }
-    else {
+    } else {
         odgovor.status(403).json('Nemate pristup');
     }
-})
+});
 
 ruter.get('/nadji/:id', async (zahtjev, odgovor) => {
     try {
@@ -59,7 +53,7 @@ ruter.get('/nadji/:id', async (zahtjev, odgovor) => {
     } catch (greska) {
         odgovor.status(500).json(greska);
     }
-})
+});
 
 ruter.get('/random', async (zahtjev, odgovor) => {
     const tip = zahtjev.query.type;
@@ -70,8 +64,7 @@ ruter.get('/random', async (zahtjev, odgovor) => {
                 { $match: { isSeries: true } },
                 { $sample: { size: 1 } }
             ]);
-        }
-        else if(tip === 'filmovi') {
+        } else if (tip === 'filmovi') {
             film = await Film.aggregate([
                 { $match: { isSeries: false } },
                 { $sample: { size: 1 } }
@@ -81,21 +74,19 @@ ruter.get('/random', async (zahtjev, odgovor) => {
     } catch (greska) {
         odgovor.status(500).json(greska);
     }
-})
+});
 
-ruter.get('/', skipVerifikacija, async (zahtjev, odgovor) => {
-    if (zahtjev.korisnik.isAdmin) {
+ruter.get('/', verifikacija, async (zahtjev, odgovor) => {
+    if (zahtjev.korisnik && zahtjev.korisnik.isAdmin) {
         try {
             const filmovi = await Film.find();
             odgovor.status(200).json(filmovi);
         } catch (greska) {
             odgovor.status(500).json(greska);
         }
-    }
-    else {
+    } else {
         odgovor.status(403).json('Nemate pristup');
     }
-})
-
+});
 
 module.exports = ruter;

@@ -53,14 +53,17 @@ export default function FilmLista() {
 
     return (
         <div className="productList">
-            <DataGrid
-                rows={filmovi}
-                disableSelectionOnClick
-                columns={columns}
-                pageSize={8}
-                checkboxSelection
-                getRowId={(row) => row._id}
-            />
+            {filmovi && filmovi.length > 0 && (
+                <DataGrid
+                    rows={filmovi}
+                    disableSelectionOnClick
+                    columns={columns}
+                    pageSize={8}
+                    checkboxSelection
+                    getRowId={(row) => row._id}
+                />
+            )}
         </div>
     );
+
 }

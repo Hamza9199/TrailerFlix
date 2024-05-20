@@ -4,17 +4,15 @@ import React, { useEffect, useState } from "react";
 import style from "./Istaknuto.module.css";
 import template from "../../assets/template.avif";
 
-
 export default function Istaknuto({ tip, setGenre }) {
-    const [content, setContent] = useState({});
+    const [content, setContent] = useState(null);
 
     useEffect(() => {
         const getRandomContent = async () => {
             try {
-                const res = await axios.get(`/filmovi/random?type=${tip}`, {
+                const res = await axios.get(`http://localhost:8888/server/filmovi/random?type=${tip}`, {
                     headers: {
-                        token:
-                            "Bearer "+JSON.parse(localStorage.getItem("korisnik")).accessToken,
+                        token: "Bearer " + JSON.parse(localStorage.getItem("korisnik")).accessToken,
                     },
                 });
                 setContent(res.data[0]);
@@ -26,6 +24,7 @@ export default function Istaknuto({ tip, setGenre }) {
     }, [tip]);
 
     console.log(content);
+
     return (
         <div className={style.featured}>
             {tip && (
@@ -53,21 +52,25 @@ export default function Istaknuto({ tip, setGenre }) {
                     </select>
                 </div>
             )}
-            <img src={template} alt="" />
-            <div className={style.info}>
-                <img src={content.imgTitle} alt="" />
-                <span className={style.desc}>{content.desc}</span>
-                <div className={style.buttons}>
-                    <button className={style.play}>
-                        <PlayArrow />
-                        <span>Play</span>
-                    </button>
-                    <button className={style.more}>
-                        <InfoOutlined />
-                        <span>Info</span>
-                    </button>
-                </div>
-            </div>
+            {content && (
+                <>
+                    <img src={content.img} alt="" />
+                    <div className={style.info}>
+                        <img src={content.imgTitle} alt="" />
+                        <span className={style.desc}>{content.desc}</span>
+                        <div className={style.buttons}>
+                            <button className={style.play}>
+                                <PlayArrow />
+                                <span>Play</span>
+                            </button>
+                            <button className={style.more}>
+                                <InfoOutlined />
+                                <span>Info</span>
+                            </button>
+                        </div>
+                    </div>
+                </>
+            )}
         </div>
     );
 }

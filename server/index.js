@@ -17,11 +17,19 @@ mongoose.connect(process.env.mongo_url, {
     console.log('MongoDB Connected');
 }).catch(err => console.error(err));
 
-app.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
+
 app.use('/server/autentifikacija', autentifikacijaRuter);
 app.use('/server/korisnici', korisniciRuter);
-app.use('/server/film', filmoviRuter);
+app.use('/server/filmovi', filmoviRuter);
 app.use('/server/liste', listaRuter);
 
 app.listen(8888, () => {
