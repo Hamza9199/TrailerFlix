@@ -1,9 +1,10 @@
 const ruter = require('express').Router();
 const Film = require('../pogledi/Film');
 const verifikacija = require('../verifikacijaTokena');
+const skipVerifikacija = require('../skipTokenVerifikacija');
 
 
-ruter.post('/dodaj', verifikacija, async (zahtjev, odgovor) => {
+ruter.post('/dodaj', skipVerifikacija, async (zahtjev, odgovor) => {
     if (zahtjev.korisnik.isAdmin) {
         const noviFilm = new Film(zahtjev.body);
         try {
@@ -20,7 +21,7 @@ ruter.post('/dodaj', verifikacija, async (zahtjev, odgovor) => {
 })
 
 
-ruter.put('/:id', verifikacija, async (zahtjev, odgovor) => {
+ruter.put('/:id', skipVerifikacija, async (zahtjev, odgovor) => {
     if (zahtjev.korisnik.isAdmin) {
         try {
             const azuriraniFilm = await Film.findByIdAndUpdate(zahtjev.params.id, {
@@ -37,7 +38,7 @@ ruter.put('/:id', verifikacija, async (zahtjev, odgovor) => {
 })
 
 
-ruter.delete('/:id', verifikacija, async (zahtjev, odgovor) => {
+ruter.delete('/:id', skipVerifikacija, async (zahtjev, odgovor) => {
     if (zahtjev.korisnik.isAdmin) {
         try {
             await Film.findByIdAndDelete(zahtjev.params.id);
@@ -82,7 +83,7 @@ ruter.get('/random', async (zahtjev, odgovor) => {
     }
 })
 
-ruter.get('/', verifikacija, async (zahtjev, odgovor) => {
+ruter.get('/', skipVerifikacija, async (zahtjev, odgovor) => {
     if (zahtjev.korisnik.isAdmin) {
         try {
             const filmovi = await Film.find();

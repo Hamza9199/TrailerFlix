@@ -1,9 +1,9 @@
 const ruter = require('express').Router();
 const Lista = require('../pogledi/lista');
 const verifikacija = require('../verifikacijaTokena');
+const skipVerifikacija = require('../skipTokenVerifikacija');
 
-
-ruter.post('/', verifikacija, async (zahtjev, odgovor) => {
+ruter.post('/', skipVerifikacija, async (zahtjev, odgovor) => {
     if(zahtjev.korisnik.isAdmin){
         const lista = new Lista(zahtjev.body)
         try{
@@ -19,7 +19,7 @@ ruter.post('/', verifikacija, async (zahtjev, odgovor) => {
 })
 
 
-ruter.delete('/:id', verifikacija, async (zahtjev, odgovor) => {
+ruter.delete('/:id', skipVerifikacija, async (zahtjev, odgovor) => {
     if(zahtjev.korisnik.isAdmin){
         try{
             await Lista.findByIdAndDelete(zahtjev.params.id);
@@ -33,7 +33,7 @@ ruter.delete('/:id', verifikacija, async (zahtjev, odgovor) => {
     }
 })
 
-ruter.get('/', verifikacija, async (zahtjev, odgovor) => {
+ruter.get('/', skipVerifikacija, async (zahtjev, odgovor) => {
     const tipQuery = zahtjev.query.type;
     const genreQuery = zahtjev.query.genre;
     let lista = [];

@@ -1,19 +1,19 @@
 import {
-    CalendarToday,
-    LocationSearching,
-    MailOutline,
-    PermIdentity,
-    PhoneAndroid,
-    Publish,
-  } from "@mui/icons-material";
-  import { Link } from "react-router-dom";
-  import "./user.css";
-  
-  export default function User() {
-    return (
+  CalendarToday,
+  LocationSearching,
+  MailOutline,
+  PermIdentity,
+  PhoneAndroid,
+  Publish,
+} from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import "./user.css";
+
+export default function User() {
+  return (
       <div className="user">
         <div className="userTitleContainer">
-          <h1 className="userTitle">Uredjivanje Korisnika</h1>
+          <h1 className="userTitle">Uređivanje Korisnika</h1>
           <Link to="/newUser">
             <button className="userAddButton">Kreiraj</button>
           </Link>
@@ -22,9 +22,9 @@ import {
           <div className="userShow">
             <div className="userShowTop">
               <img
-                src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                alt=""
-                className="userShowImg"
+                  src="https://www.the-sun.com/wp-content/uploads/sites/6/2023/10/www-instagram-com-monkeycatluna-hl-851711797.jpg"
+                  alt=""
+                  className="userShowImg"
               />
               <div className="userShowTopTitle">
                 <span className="userShowUsername">Anna Becker</span>
@@ -63,50 +63,50 @@ import {
                 <div className="userUpdateItem">
                   <label>Username</label>
                   <input
-                    type="text"
-                    placeholder="annabeck99"
-                    className="userUpdateInput"
+                      type="text"
+                      placeholder="annabeck99"
+                      className="userUpdateInput"
                   />
                 </div>
                 <div className="userUpdateItem">
                   <label>Ime i Prezime</label>
                   <input
-                    type="text"
-                    placeholder="Anna Becker"
-                    className="userUpdateInput"
+                      type="text"
+                      placeholder="Anna Becker"
+                      className="userUpdateInput"
                   />
                 </div>
                 <div className="userUpdateItem">
                   <label>Email</label>
                   <input
-                    type="text"
-                    placeholder="annabeck99@gmail.com"
-                    className="userUpdateInput"
+                      type="text"
+                      placeholder="annabeck99@gmail.com"
+                      className="userUpdateInput"
                   />
                 </div>
                 <div className="userUpdateItem">
                   <label>Telefon</label>
                   <input
-                    type="text"
-                    placeholder="+1 123 456 67"
-                    className="userUpdateInput"
+                      type="text"
+                      placeholder="+1 123 456 67"
+                      className="userUpdateInput"
                   />
                 </div>
                 <div className="userUpdateItem">
                   <label>Adresa</label>
                   <input
-                    type="text"
-                    placeholder="New York | USA"
-                    className="userUpdateInput"
+                      type="text"
+                      placeholder="New York | USA"
+                      className="userUpdateInput"
                   />
                 </div>
               </div>
               <div className="userUpdateRight">
                 <div className="userUpdateUpload">
                   <img
-                    className="userUpdateImg"
-                    src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                    alt=""
+                      className="userUpdateImg"
+                      src="https://i.pinimg.com/736x/ba/92/7f/ba927ff34cd961ce2c184d47e8ead9f6.jpg"
+                      alt=""
                   />
                   <label htmlFor="file">
                     <Publish className="userUpdateIcon" />
@@ -119,5 +119,5 @@ import {
           </div>
         </div>
       </div>
-    );
-  }
+  );
+}

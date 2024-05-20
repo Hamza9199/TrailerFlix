@@ -2,9 +2,10 @@ const ruter = require('express').Router();
 const Korisnik = require('../pogledi/Korisnik');
 const CryptoJS = require('crypto-js');
 const verifikacija = require('../verifikacijaTokena');
+const skipVerifikacija = require('../skipTokenVerifikacija');
 
 
-ruter.put("/:id", verifikacija , async (zahtjev, odgovor) => {
+ruter.put("/:id", skipVerifikacija , async (zahtjev, odgovor) => {
     if(zahtjev.korisnik.id === zahtjev.params.id || zahtjev.korisnik.isAdmin){
         if(zahtjev.body.password){
             zahtjev.body.password = CryptoJS.AES.encrypt(
@@ -27,7 +28,7 @@ ruter.put("/:id", verifikacija , async (zahtjev, odgovor) => {
     }
 })
 
-ruter.delete("/:id", verifikacija, async (zahtjev, odgovor) => {
+ruter.delete("/:id", skipVerifikacija, async (zahtjev, odgovor) => {
     if(zahtjev.korisnik.id === zahtjev.params.id || zahtjev.korisnik.isAdmin){
         try{
             await Korisnik.findByIdAndDelete(zahtjev.params.id);
@@ -53,11 +54,11 @@ ruter.get("/nadji/:id", async (zahtjev, odgovor) => {
 })
 
 
-ruter.get("/", verifikacija, async (zahtjev, odgovor) => {
+ruter.get("/", skipVerifikacija, async (zahtjev, odgovor) => {
     const query = zahtjev.query.new;
     if(zahtjev.korisnik.isAdmin){
         try{
-            const korisnici = query ? await Korisnik.find().sort({_id: -1}).limit(10) : await Korisnik.find();
+            const korisnici = query ? await Korisnik.find().sort({_id: -1}).limit(5) : await Korisnik.find();
             odgovor.status(200).json(korisnici);
         } catch(greska){
             odgovor.status(500).json(greska);

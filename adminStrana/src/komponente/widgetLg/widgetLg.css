@@ -1,57 +1,70 @@
-.topbar {
+
+.widgetLg {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-right: 60px;
+    margin-left: 50px;
+}
+
+.widgetLgTitle {
+    font-size: 22px;
+    font-weight: 600;
+    padding-top: -10px;
+}
+
+.widgetLgTable {
     width: 100%;
-    height: 50px;
-    background-color: white;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-  
-  .topbarWrapper {
-    height: 100%;
-    padding: 0px 20px;
+    border-spacing: 20px;
+    border-collapse: separate;
+}
+
+.widgetLgTh {
+    text-align: left;
+    padding: 10px 0;
+}
+
+.widgetLgTr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.widgetLgUser {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo {
-    font-weight: bold;
-    font-size: 30px;
-    color: darkblue;
-    cursor: pointer;
-  }
-  
-  .topRight{
-      display: flex;
-      align-items: center;
-  }
-  
-  .topbarIconContainer {
-    position: relative;
-    cursor: pointer;
+}
+
+.widgetLgImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-right: 10px;
+}
+
+.widgetLgName {
+    font-weight: 500;
+}
+
+.widgetLgStatus {
+    display: flex;
+    align-items: center;
+}
+
+.widgetLgButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #eee;
     color: #555;
-  }
-  
-  .topIconBadge{
-      width: 15px;
-      height: 15px;
-      position: absolute;
-      top: -5px;
-      right: 0px;
-      background-color: red;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-  }
-  
-  .topAvatar{
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-  }
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.widgetLgButton:hover {
+    background-color: #ddd;
+}

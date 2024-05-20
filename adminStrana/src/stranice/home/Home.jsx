@@ -3,16 +3,59 @@ import FeaturedInfo from "../../komponente/featuredInfo/FeaturedInfo";
 import "./home.css";
 import WidgetSm from "../../komponente/widgetSm/WidgetSm";
 import WidgetLg from "../../komponente/widgetLg/WidgetLg";
+import {useEffect, useMemo, useState} from "react";
+import axios from "axios";
 
 export default function Home() {
-  return (
-    <div className="home">
-      <FeaturedInfo />
-      <Chart title="User Analytics" grid dataKey="Active User"/>
-      <div className="homeWidgets">
-        <WidgetSm/>
-        <WidgetLg/>
-      </div>
-    </div>
-  );
+    const MONTSH = useMemo(()=>
+        [
+            "Januar",
+            "Februar",
+            "Mart",
+            "April",
+            "Maj",
+            "Jun",
+            "Jul",
+            "Avgust",
+            "Septembar",
+            "Oktobar",
+            "Novembar",
+            "Decembar",
+        ],[])
+
+    const [userStats, setUserStats] = useState([])
+
+
+    useEffect(() => {
+        const getStats = async () => {
+            try {
+                const res = await axios.get("/korisnici/statistika", {
+                    headers: {
+                        token: "Bearer " + JSON.parse(localStorage.getItem("korisnik")).token,
+                    },
+                });
+                res.data.map((item) =>
+                    setUserStats((prev) => [
+                        ...prev,
+                        {name: MONTSH[item._id - 1], "Novi Korisnik": item.total},
+                    ])
+                );
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        getStats();
+    }, [MONTSH]);
+
+
+    return (
+        <div className="home">
+            <FeaturedInfo />
+            <Chart data={userStats} title="Statistika" grid={true} dataKey="Novi Korisnik" />
+            <div className="homeWidgets">
+                <WidgetSm />
+                <WidgetLg />
+            </div>
+        </div>
+    );
 }

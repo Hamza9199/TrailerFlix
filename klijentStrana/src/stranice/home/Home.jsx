@@ -20,7 +20,7 @@ function Home ({ tip }) {
                     {
                         headers: {
                             token:
-                                "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+                                "Bearer "+JSON.parse(localStorage.getItem("korisnik")).accessToken,
                         },
                     }
                 );

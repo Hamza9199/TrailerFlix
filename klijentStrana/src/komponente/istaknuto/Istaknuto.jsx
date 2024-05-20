@@ -14,7 +14,7 @@ export default function Istaknuto({ tip, setGenre }) {
                 const res = await axios.get(`/filmovi/random?type=${tip}`, {
                     headers: {
                         token:
-                            "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+                            "Bearer "+JSON.parse(localStorage.getItem("korisnik")).accessToken,
                     },
                 });
                 setContent(res.data[0]);

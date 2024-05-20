@@ -21,7 +21,7 @@ export default function ListItem({ index, item }) {
                 const res = await axios.get("/filmovi/nadji/" + item, {
                     headers: {
                         token:
-                            "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+                            "Bearer "+JSON.parse(localStorage.getItem("korisnik")).accessToken,
                     },
                 });
                 setMovie(res.data);
