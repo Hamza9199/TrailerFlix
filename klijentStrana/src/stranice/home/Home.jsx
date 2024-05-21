@@ -31,13 +31,16 @@ function Home({ tip }) {
     }, [tip, genre]);
 
     return (
+        <>
+        <Navbar />
         <div className={style.home}>
-            <Navbar />
+
             <Istaknuto tip={tip} setGenre={setGenre} />
             {lists.map((list) => (
                 <List key={list.id} list={list} />
             ))}
         </div>
+        </>
     );
 }
 

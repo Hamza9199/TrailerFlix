@@ -2,34 +2,43 @@ import { InfoOutlined, PlayArrow } from '@mui/icons-material';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import style from "./Istaknuto.module.css";
-import template from "../../assets/template.avif";
+import { Link } from "react-router-dom";
 
 export default function Istaknuto({ tip, setGenre }) {
     const [content, setContent] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const getRandomContent = async () => {
             try {
+                tip = 'film';
                 const res = await axios.get(`http://localhost:8888/server/filmovi/random?type=${tip}`, {
                     headers: {
                         token: "Bearer " + JSON.parse(localStorage.getItem("korisnik")).accessToken,
                     },
                 });
+
                 setContent(res.data[0]);
             } catch (err) {
-                console.log(err);
+                setError(err.message);
             }
         };
         getRandomContent();
     }, [tip]);
 
-    console.log(content);
+    const handlePlayClick = () => {
+        localStorage.setItem("film", JSON.stringify(content));
+    };
+
+    if (error) {
+        return <div className={style.error}>Error: {error}</div>;
+    }
 
     return (
         <div className={style.featured}>
             {tip && (
                 <div className={style.category}>
-                    <span>{tip === "movies" ? "Filmovi" : "Serije"}</span>
+                    <span>{tip === "film" ? "Filmovi" : "Serije"}</span>
                     <select
                         name="genre"
                         id="genre"
@@ -54,15 +63,17 @@ export default function Istaknuto({ tip, setGenre }) {
             )}
             {content && (
                 <>
-                    <img src={content.img} alt="" />
+                    <img src={content.img} alt={content.title} />
                     <div className={style.info}>
-                        <img src={content.imgTitle} alt="" />
+                        <img src={content.imgTitle} alt={content.title} />
                         <span className={style.desc}>{content.desc}</span>
                         <div className={style.buttons}>
-                            <button className={style.play}>
-                                <PlayArrow />
-                                <span>Play</span>
-                            </button>
+                            <Link to="/watch" onClick={handlePlayClick}>
+                                <button className={style.play}>
+                                    <PlayArrow />
+                                    <span>Play</span>
+                                </button>
+                            </Link>
                             <button className={style.more}>
                                 <InfoOutlined />
                                 <span>Info</span>

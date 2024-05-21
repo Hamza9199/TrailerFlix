@@ -9,8 +9,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import style from "./ListItem.module.css";
 
-
-
 export default function ListItem({ index, item }) {
     const [isHovered, setIsHovered] = useState(false);
     const [movie, setMovie] = useState({});
@@ -18,7 +16,7 @@ export default function ListItem({ index, item }) {
     useEffect(() => {
         const getMovie = async () => {
             try {
-                const res = await axios.get("/filmovi/nadji/" + item, {
+                const res = await axios.get("http://localhost:8888/server/filmovi/nadji/" + item, {
                     headers: {
                         token:
                             "Bearer "+JSON.parse(localStorage.getItem("korisnik")).accessToken,
@@ -33,14 +31,14 @@ export default function ListItem({ index, item }) {
     }, [item]);
 
     return (
-        <Link to={{ pathname: "/watch", movie: movie }}>
+        <Link to={{ pathname: "/watch", state: { movie: movie } }}>
             <div
                 className={style.listItem}
                 style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <img src={movie?.imgSm} alt="" />
+                <img src={movie.imgSmall} alt="" />
                 {isHovered && (
                     <>
                         <video src={movie.trailer} autoPlay={true} loop />

@@ -23,6 +23,8 @@
     font-size: 18px;
     z-index: 2;
     transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+
 }
 
 .back:hover {

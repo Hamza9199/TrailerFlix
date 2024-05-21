@@ -5,7 +5,7 @@ const verifikacija = require('../verifikacijaTokena');
 const skipVerifikacija = require('../skipTokenVerifikacija');
 
 
-ruter.put("/:id", skipVerifikacija , async (zahtjev, odgovor) => {
+ruter.put("/:id", verifikacija , async (zahtjev, odgovor) => {
     if(zahtjev.korisnik.id === zahtjev.params.id || zahtjev.korisnik.isAdmin){
         if(zahtjev.body.password){
             zahtjev.body.password = CryptoJS.AES.encrypt(
@@ -28,7 +28,7 @@ ruter.put("/:id", skipVerifikacija , async (zahtjev, odgovor) => {
     }
 })
 
-ruter.delete("/:id", skipVerifikacija, async (zahtjev, odgovor) => {
+ruter.delete("/:id", verifikacija, async (zahtjev, odgovor) => {
     if(zahtjev.korisnik.id === zahtjev.params.id || zahtjev.korisnik.isAdmin){
         try{
             await Korisnik.findByIdAndDelete(zahtjev.params.id);
@@ -54,20 +54,24 @@ ruter.get("/nadji/:id", async (zahtjev, odgovor) => {
 })
 
 
-ruter.get("/", skipVerifikacija, async (zahtjev, odgovor) => {
+ruter.get("/", verifikacija, async (zahtjev, odgovor) => {
+    console.log('Auth User:', zahtjev.korisnik);
     const query = zahtjev.query.new;
     if(zahtjev.korisnik.isAdmin){
         try{
             const korisnici = query ? await Korisnik.find().sort({_id: -1}).limit(5) : await Korisnik.find();
+            console.log('Users found:', korisnici);
             odgovor.status(200).json(korisnici);
         } catch(greska){
+            console.error(greska);  // Log any errors
             odgovor.status(500).json(greska);
         }
     }
     else{
         odgovor.status(403).json("Niste autorizovani");
     }
-})
+});
+
 
 ruter.get("/statistika", async (zahtjev, odgovor) => {
     const danasnjiDatum = new Date();

@@ -7,16 +7,12 @@ export default function Topbar() {
       <div className="topbar">
         <div className="topbarWrapper">
           <div className="topLeft">
-            <span className="logo">admin</span>
+            <span className="logo">TrailerFlix Admin Panel</span>
           </div>
           <div className="topRight">
+
             <div className="topbarIconContainer">
-              <NotificationsNone />
-              <span className="topIconBadge">2</span>
-            </div>
-            <div className="topbarIconContainer">
-              <Language />
-              <span className="topIconBadge">2</span>
+              <span className="logoutTitle" >Logout</span>
             </div>
             <div className="topbarIconContainer">
               <Settings />

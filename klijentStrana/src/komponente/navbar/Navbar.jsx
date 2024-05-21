@@ -37,20 +37,21 @@ function Navbar(){
                     <span>Moja Lista</span>
                 </div>
                 <div className={style.right}>
-                    <Search className={style.icon} />
-                    <span>Djecije</span>
-                    <Notifications className={style.icon} />
+                    <Search className={style.icon}/>
+                    <span>Pretrazivanje</span>
+                    <Notifications className={style.icon}/>
                     <img
                         src={template}
                         alt="template"
                     />
                     <div className={style.profile}>
-                        <ArrowDropDown className={style.icon} />
+                        <ArrowDropDown className={style.icon}/>
                         <div className={style.options}>
                             <span>Postavke</span>
-                            <span>Odjava</span>
                         </div>
+
                     </div>
+                    <span>Odjava</span>
                 </div>
             </div>
         </div>

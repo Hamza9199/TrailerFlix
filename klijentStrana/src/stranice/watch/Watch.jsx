@@ -1,20 +1,44 @@
-import style from "./Watch.module.css";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowBackOutlined } from "@mui/icons-material";
-import { Link, useLocation } from "react-router-dom";
+import style from "./Watch.module.css";
 import templateVideo from "../../assets/templateVideo.mp4";
 
-
-
-export default function Watch() {
+const Watch = () => {
     const location = useLocation();
-    const movie = location.movie;
+    const navigate = useNavigate();
+    const filmData = localStorage.getItem("film");
+    const film = filmData ? JSON.parse(filmData) : null;
+    film.trailer = templateVideo;
+    useEffect(() => {
+        if (!film) {
+            console.log("Film nije dostupan");
+        }
+    }, [film]);
+
+    if (!film) {
+        return (
+            <div className={style.watch}>
+                <p>Film nije dostupan</p>
+            </div>
+        );
+    }
+
     return (
         <div className={style.watch}>
-            <Link to="/" className={style.back}>
-                <ArrowBackOutlined style={{ marginRight: '10px' }} />
+            <div className={style.back} onClick={() => navigate(-1)}>
+                <ArrowBackOutlined />
                 Home
-            </Link>
-            <video className={style.video} src={templateVideo} controls autoPlay />
+            </div>
+            <video
+                className={style.video}
+                autoPlay
+                controls
+                playsInline
+                src={film.trailer}
+            />
         </div>
     );
-}
+};
+
+export default Watch;

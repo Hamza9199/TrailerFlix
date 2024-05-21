@@ -65,8 +65,8 @@
 
 .profile .options {
   display: none;
-  background-color: var(--main-color);
-  border-radius: 5px;
+  background-color: black;
+  border-radius: 3px;
   position: absolute;
 }
 

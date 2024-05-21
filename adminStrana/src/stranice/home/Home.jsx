@@ -29,9 +29,11 @@ export default function Home() {
     useEffect(() => {
         const getStats = async () => {
             try {
-                const res = await axios.get("/korisnici/statistika", {
+                const token = JSON.parse(localStorage.getItem("korisnik")).accessToken;
+                console.log('Token:', token);
+                const res = await axios.get("http://localhost:8888/server/korisnici/statistika", {
                     headers: {
-                        token: "Bearer " + JSON.parse(localStorage.getItem("korisnik")).token,
+                        token: "Bearer " + token
                     },
                 });
                 res.data.map((item) =>
@@ -50,7 +52,6 @@ export default function Home() {
 
     return (
         <div className="home">
-            <FeaturedInfo />
             <Chart data={userStats} title="Statistika" grid={true} dataKey="Novi Korisnik" />
             <div className="homeWidgets">
                 <WidgetSm />

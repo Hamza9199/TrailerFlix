@@ -56,25 +56,34 @@ ruter.get('/nadji/:id', async (zahtjev, odgovor) => {
 });
 
 ruter.get('/random', async (zahtjev, odgovor) => {
-    const tip = zahtjev.query.type;
+    const tip = zahtjev.query.type
     let film;
     try {
-        if (tip === 'serije') {
+        if (tip === 'serija') {
             film = await Film.aggregate([
                 { $match: { isSeries: true } },
                 { $sample: { size: 1 } }
             ]);
-        } else if (tip === 'filmovi') {
+        } else if (tip === 'film') {
             film = await Film.aggregate([
                 { $match: { isSeries: false } },
                 { $sample: { size: 1 } }
             ]);
+        } else {
+            throw new Error('Invalid type');
         }
+
+        if (!film || film.length === 0) {
+            throw new Error('No content found');
+        }
+
         odgovor.status(200).json(film);
     } catch (greska) {
-        odgovor.status(500).json(greska);
+        odgovor.status(500).json({ message: greska.message });
     }
 });
+
+
 
 ruter.get('/', verifikacija, async (zahtjev, odgovor) => {
     if (zahtjev.korisnik && zahtjev.korisnik.isAdmin) {
