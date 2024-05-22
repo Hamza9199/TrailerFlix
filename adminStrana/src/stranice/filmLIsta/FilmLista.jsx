@@ -1,10 +1,10 @@
-import "./filmLista.css";
+import style from "./filmLista.module.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { FilmContext } from "../../context/filmContext/FilmContext";
-import { getFilmovi } from "../../context/filmContext/serverCallFilm";
+import { deleteFilm, getFilmovi } from "../../context/filmContext/serverCallFilm";
 
 export default function FilmLista() {
     const { filmovi, dispatch } = useContext(FilmContext);
@@ -12,6 +12,14 @@ export default function FilmLista() {
     useEffect(() => {
         getFilmovi(dispatch);
     }, [dispatch]);
+
+    const handleDelete = (id) => {
+        deleteFilm(id, dispatch);
+    }
+
+    const handleEdit = (film) => {
+        localStorage.setItem("film", JSON.stringify(film));
+    };
 
     const columns = [
         { field: "_id", headerName: "ID", width: 90 },
@@ -21,8 +29,8 @@ export default function FilmLista() {
             width: 200,
             renderCell: (params) => {
                 return (
-                    <div className="productListItem">
-                        <img className="productListImg" src={params.row.img} alt="" />
+                    <div className={style.productListItem}>
+                        <img className={style.productListImg} src={params.row.img} alt="" />
                         {params.row.title}
                     </div>
                 );
@@ -39,11 +47,22 @@ export default function FilmLista() {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link to={`/film/${params.row._id}`}>
-                            <button className="productListEdit">Edit</button>
+                        <Link
+                            to={{
+                                pathname: `/film/${params.row._id}`,
+                                state: { film: params.row }
+                            }}
+                        >
+                            <button
+                                className={style.productListEdit}
+                                onClick={() => handleEdit(params.row)}
+                            >
+                                Uredi
+                            </button>
                         </Link>
                         <DeleteOutline
-                            className="productListDelete"
+                            className={style.productListDelete}
+                            onClick={() => handleDelete(params.row._id)}
                         />
                     </>
                 );
@@ -52,7 +71,7 @@ export default function FilmLista() {
     ];
 
     return (
-        <div className="productList">
+        <div className={style.productList}>
             {filmovi && filmovi.length > 0 && (
                 <DataGrid
                     rows={filmovi}
@@ -65,5 +84,4 @@ export default function FilmLista() {
             )}
         </div>
     );
-
 }

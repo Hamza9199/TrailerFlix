@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './stranice/login/Login';
 import { AuthContext } from './context/authContext/AuthContext.jsx';
 import FilmLista from './stranice/filmLIsta/FilmLista.jsx';
+import NoviFilm from './stranice/noviFilm/NoviFilm.jsx';
 
 function App() {
     const { user } = useContext(AuthContext);
@@ -31,6 +32,8 @@ function App() {
                     <Route path="/user/:userId" element={<User />} />
                     <Route path="/newUser" element={<NewUser />} />
                     <Route path="/filmovi" element={<FilmLista />} />
+                    <Route path="/film/:filmId" element={<Film />} />
+                    <Route path="/noviFilm" element={<NoviFilm />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>

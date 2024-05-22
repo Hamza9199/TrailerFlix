@@ -1,5 +1,14 @@
 import axios from "axios";
-import {getFilmsFailure, getFilmsStart, getFilmsSuccess} from "./FilmAction.js";
+import {
+    createFilmFailure,
+    createFilmStart, createFilmSuccess,
+    deleteFilmFailure,
+    deleteFilmStart,
+    deleteFilmSuccess,
+    getFilmsFailure,
+    getFilmsStart,
+    getFilmsSuccess
+} from "./FilmAction.js";
 
 
 
@@ -17,4 +26,32 @@ export const getFilmovi = async (dispatch) => {
         dispatch(getFilmsFailure());
     }
 
+}
+
+export const deleteFilm = async (id, dispatch) => {
+    dispatch(deleteFilmStart());
+    try {
+        await axios.delete("http://localhost:8888/server/filmovi/" + id, {
+            headers: {
+                token: "Bearer " + JSON.parse(localStorage.getItem("korisnik")).accessToken,
+            }
+        });
+        dispatch(deleteFilmSuccess(id))
+    }catch(err){
+        dispatch(deleteFilmFailure());
+    }
+}
+
+export const createFilm = async (film, dispatch) => {
+    dispatch(createFilmStart());
+    try {
+        const res = await axios.post("http://localhost:8888/server/filmovi", film, {
+            headers: {
+                token: "Bearer " + JSON.parse(localStorage.getItem("korisnik")).accessToken,
+            }
+        });
+        dispatch(createFilmSuccess(res.data))
+    }catch(err){
+        dispatch(createFilmFailure());
+    }
 }
