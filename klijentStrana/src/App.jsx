@@ -3,6 +3,7 @@ import Home from "./stranice/home/Home";
 import Register from "./stranice/register/Register";
 import Login from "./stranice/login/Login";
 import Watch from "./stranice/watch/Watch";
+import Kontakt from "./stranice/kontakt/Kontakt";
 import {
     BrowserRouter as Router,
     Routes,
@@ -21,6 +22,7 @@ function App () {
                 <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
                 {user && (
                     <>
+                        <Route path="/kontakt" element={<Kontakt />} />
                         <Route path="/filmovi" element={<Home type="film" />} />
                         <Route path="/serije" element={<Home type="serija" />} />
                         <Route path="/watch" element={<Watch />} />

@@ -1,18 +1,21 @@
+
 .featured {
-  height: 76vh;
+  height: 80vh;
   position: relative;
   overflow: hidden;
   color: white;
+  z-index: 1;
 }
 
 .category {
   position: absolute;
-  top: 80px;
+  top: 20px;
   left: 50px;
   font-size: 30px;
   font-weight: 500;
   display: flex;
   align-items: center;
+  z-index: 2;
 }
 
 .category select {
@@ -39,7 +42,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: -1;
 }
 
 .info {

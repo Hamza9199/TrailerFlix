@@ -18,7 +18,7 @@ mongoose.connect(process.env.mongo_url, {
 }).catch(err => console.error(err));
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:9999', 'http://localhost:5173'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204

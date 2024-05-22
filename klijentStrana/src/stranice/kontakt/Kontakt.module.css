@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mapContainer {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.content {
+    width: 100%;
+}
+
+.kontaktContent {
+    text-align: center;
+}
+
+.contactInfo {
+    margin-bottom: 30px;
+}
+
+.contactForm {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contactForm input,
+.contactForm textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contactForm textarea {
+    height: 150px;
+}
+
+.contactForm button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contactForm button:hover {
+    background-color: #0056b3;
+}

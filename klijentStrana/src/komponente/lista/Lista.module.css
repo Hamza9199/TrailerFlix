@@ -1,6 +1,9 @@
 .list {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 30px;
 }
 
 .listTitle {
@@ -8,6 +11,7 @@
   font-size: 20px;
   font-weight: 500;
   margin-left: 50px;
+  z-index: 11;
 }
 
 .wrapper {
@@ -20,7 +24,7 @@
   background-color: rgba(22, 22, 22, 0.5);
   color: white;
   position: absolute;
-  z-index: 99;
+  z-index: 11;
   top: 0;
   bottom: 0;
   margin: auto;

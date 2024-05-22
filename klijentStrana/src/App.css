@@ -1,5 +1,16 @@
 :root {
-  --main-color: #0b0b0b;
+  --main-color: #1a1a1a; /* Slightly lighter for better contrast */
+  --accent-color: #e50914; /* Netflix-like red for accent */
+  --text-color: #ffffff; /* White text color */
+  --background-gradient: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* A cool gradient background */
+  --background-color: #0b0b0b; /* Main background color */
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 .link {
@@ -19,8 +30,4 @@
     font-size: 12px;
     padding: 5px;
   }
-}
-
-body{
-  background-color: black;
 }

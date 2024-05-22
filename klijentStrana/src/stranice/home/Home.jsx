@@ -4,6 +4,7 @@ import List from "../../komponente/lista/Lista";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import style from "./Home.module.css";
+import Footer from "../../komponente/footer/Footer";
 
 function Home({ tip }) {
     const [lists, setLists] = useState([]);
@@ -32,14 +33,16 @@ function Home({ tip }) {
 
     return (
         <>
-        <Navbar />
-        <div className={style.home}>
 
+        <div className={style.home}>
+            <Navbar className={style.navbar} />
             <Istaknuto tip={tip} setGenre={setGenre} />
             {lists.map((list) => (
                 <List key={list.id} list={list} />
             ))}
+            <Footer />
         </div>
+
         </>
     );
 }
