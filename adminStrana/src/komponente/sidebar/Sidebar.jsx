@@ -44,7 +44,13 @@ export default function Sidebar() {
                   <PlayCircleOutlined className="sidebarIcon" />
                   Filmovi
                 </li>
-              </Link>
+                </Link>
+                <Link to="/liste" className="link">
+                  <li className="sidebarListItem">
+                    <PlayCircleOutlined className="sidebarIcon" />
+                    Liste
+                  </li>
+                </Link>
             </ul>
           </div>
         </div>

@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import style from "./noviFilm.module.css";
-import Storage from "../../fireBase.js";
+import storage from "../../fireBaseStorage.js";
 import {createFilm} from "../../context/filmContext/serverCallFilm.js";
 import {FilmContext} from "../../context/filmContext/FilmContext.jsx";
+import {getStorage} from "firebase/storage";
 
 export default function NewMovie() {
     const [film, setFilm] = useState(null);
@@ -23,28 +24,33 @@ export default function NewMovie() {
     const upload = (items) => {
         items.forEach((item) => {
             const fileName = new Date().getTime() + item.label + item.file.name;
-            const uploadTask = Storage.ref(`/items/${fileName}`).put(item.file);
+            const uploadTask = storage.ref(`films/${fileName}`).put(item.file);
             uploadTask.on(
                 "state_changed",
                 (snapshot) => {
                     const progress =
                         (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log("Upload je " + progress + "% zavrsen");
+                    console.log(`Upload is ${progress}% done`);
                 },
                 (error) => {
                     console.log(error);
                 },
                 () => {
-                    uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-                        setFilm((prev) => {
-                            return { ...prev, [item.label]: url };
+                    storage
+                        .ref("films")
+                        .child(fileName)
+                        .getDownloadURL()
+                        .then((url) => {
+                            setFilm((prev) => {
+                                return { ...prev, [item.label]: url };
+                            });
+                            setUploaded((prev) => prev + 1);
                         });
-                        setUploaded((prev) => prev + 1);
-                    });
                 }
             );
         });
     };
+
 
     const handleUpload = (e) => {
         e.preventDefault();
@@ -130,18 +136,9 @@ export default function NewMovie() {
                     />
                 </div>
                 <div className={style.addProductItem}>
-                    <label>Trajanje</label>
-                    <input
-                        type="text"
-                        placeholder="Trajanje"
-                        name="duration"
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className={style.addProductItem}>
                     <label>Limit</label>
                     <input
-                        type="text"
+                        type="number"
                         placeholder="limit"
                         name="limit"
                         onChange={handleChange}
@@ -170,7 +167,7 @@ export default function NewMovie() {
                         onChange={(e) => setVideo(e.target.files[0])}
                     />
                 </div>
-                {uploaded === 5 ? (
+                {uploaded === 0 ? (
                     <button className={style.addProductButton} onClick={handleSubmit}>
                         Napravi
                     </button>

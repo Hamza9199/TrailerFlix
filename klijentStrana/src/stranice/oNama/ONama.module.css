@@ -1,0 +1,33 @@
+.oNamaContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.oNamaContainer1{
+    text-align: center;
+    margin-top: 100px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.oNamaContainer h2 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.oNamaContainer p {
+    font-size: 16px;
+    color: #b0afaf;
+    line-height: 1.6;
+    text-indent: 1.5em;
+}
+
+.tempFot{
+    margin-top: 50px;
+}

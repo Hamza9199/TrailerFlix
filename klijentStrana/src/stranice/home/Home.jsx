@@ -1,14 +1,28 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
 import Navbar from "../../komponente/navbar/Navbar";
 import Istaknuto from "../../komponente/istaknuto/Istaknuto";
 import List from "../../komponente/lista/Lista";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import style from "./Home.module.css";
 import Footer from "../../komponente/footer/Footer";
+import style from "./Home.module.css";
 
-function Home({ tip }) {
+function Home() {
     const [lists, setLists] = useState([]);
     const [genre, setGenre] = useState(null);
+
+    const location = useLocation();
+
+    let tip;
+
+    if (location.pathname.includes("/serije")) {
+        tip = 'serija';
+    } else if (location.pathname.includes("/filmovi")) {
+        tip = 'film';
+    }
+    else{
+        tip = 'film'
+    }
 
     useEffect(() => {
         const getRandomLists = async () => {
@@ -32,8 +46,6 @@ function Home({ tip }) {
     }, [tip, genre]);
 
     return (
-        <>
-
         <div className={style.home}>
             <Navbar className={style.navbar} />
             <Istaknuto tip={tip} setGenre={setGenre} />
@@ -42,8 +54,6 @@ function Home({ tip }) {
             ))}
             <Footer />
         </div>
-
-        </>
     );
 }
 

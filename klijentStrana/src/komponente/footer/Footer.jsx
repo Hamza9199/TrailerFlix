@@ -16,6 +16,7 @@ function Footer() {
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/kontakt">Kontakt</a></li>
+                        <li><a href="/oNama">O nama</a></li>
                     </ul>
                 </div>
             </div>

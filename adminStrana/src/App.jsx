@@ -12,6 +12,9 @@ import Login from './stranice/login/Login';
 import { AuthContext } from './context/authContext/AuthContext.jsx';
 import FilmLista from './stranice/filmLIsta/FilmLista.jsx';
 import NoviFilm from './stranice/noviFilm/NoviFilm.jsx';
+import Listeliste from './stranice/listeListe/Listeliste.jsx';
+import Lista from './stranice/lista/Lista.jsx';
+import NovaLista from './stranice/novaLista/NovaLista.jsx';
 
 function App() {
     const { user } = useContext(AuthContext);
@@ -34,6 +37,9 @@ function App() {
                     <Route path="/filmovi" element={<FilmLista />} />
                     <Route path="/film/:filmId" element={<Film />} />
                     <Route path="/noviFilm" element={<NoviFilm />} />
+                    <Route path="/liste" element={<Listeliste />} />
+                    <Route path="/lista/:listaId" element={<Lista />} />
+                    <Route path="/novaLista" element={<NovaLista />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>

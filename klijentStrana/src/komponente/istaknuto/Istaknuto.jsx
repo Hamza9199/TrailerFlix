@@ -2,16 +2,26 @@ import { InfoOutlined, PlayArrow } from '@mui/icons-material';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import style from "./Istaknuto.module.css";
-import { Link } from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 export default function Istaknuto({ tip, setGenre }) {
     const [content, setContent] = useState(null);
     const [error, setError] = useState(null);
 
+    const location = useLocation();
+
+    if (location.pathname.includes("/serije")) {
+        tip = 'film';
+    } else if (location.pathname.includes("/filmovi")) {
+        tip = 'film';
+    }
+    else{
+        tip = 'film'
+    }
+
     useEffect(() => {
         const getRandomContent = async () => {
             try {
-                tip = 'film';
                 const res = await axios.get(`http://localhost:8888/server/filmovi/random?type=${tip}`, {
                     headers: {
                         token: "Bearer " + JSON.parse(localStorage.getItem("korisnik")).accessToken,
