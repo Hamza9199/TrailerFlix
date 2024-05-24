@@ -1,4 +1,5 @@
-import ListReducer from "./ListaReducer";
+import ListReducer from "./ListaReducer"; // Corrected import
+
 import { createContext, useReducer } from "react";
 
 const INITIAL_STATE = {

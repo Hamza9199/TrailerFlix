@@ -1,14 +1,17 @@
 import { ArrowDropDown, Notifications, Search } from "@mui/icons-material";
-import { useState, useEffect } from "react";
+import {useState, useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
 import style from "./Navbar.module.css";
 import logo from '../../assets/g3.png';
 import template from '../../assets/template.avif';
 import axios from "axios";
+import {AuthContext} from "../../context/authContext/AuthContext.jsx";
+import {logout} from "../../context/authContext/AuthAction.js";
 
 function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [newAdmin, setNewAdmin] = useState([]);
+    const {dispatch} = useContext(AuthContext);
 
 
     useEffect(() => {
@@ -68,7 +71,7 @@ function Navbar() {
                             <span>Postavke</span>
                         </div>
                     </div>
-                    <span className={style.odjavaText}>Odjava</span>
+                    <span className={style.odjavaText} onClick={() => dispatch(logout())}>Odjava</span>
                 </div>
             </div>
         </div>

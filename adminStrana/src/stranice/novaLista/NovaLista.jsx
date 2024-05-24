@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import style from "./NovaLista.module.css";
-import { createFilm, getFilmovi } from "../../context/filmContext/serverCallFilm";
+import { getFilmovi } from "../../context/filmContext/serverCallFilm";
 import { FilmContext } from "../../context/filmContext/FilmContext";
 import { ListContext } from "../../context/listContext/ListaContext";
 import { createList } from "../../context/listContext/serverCallLista";
@@ -11,10 +11,20 @@ export default function NewList() {
     const navigate = useNavigate();
 
     const { dispatch } = useContext(ListContext);
-    const { movies, dispatch: dispatchMovie } = useContext(FilmContext);
+    const { dispatch: dispatchMovie } = useContext(FilmContext);
+    let movies = [{}];
 
     useEffect(() => {
-        getFilmovi(dispatchMovie);
+        const fetchData = async () => {
+            try {
+                getFilmovi(dispatchMovie);
+                movies = dispatchMovie
+            } catch (error) {
+                console.error("Error fetching movies:", error);
+            }
+        };
+
+        fetchData();
     }, [dispatchMovie]);
 
     const handleChange = (e) => {
@@ -43,7 +53,7 @@ export default function NewList() {
                         <label>Naslov</label>
                         <input
                             type="text"
-                            placeholder="Popularni filmovi"
+                            placeholder="Film.."
                             name="title"
                             onChange={handleChange}
                         />
@@ -52,17 +62,17 @@ export default function NewList() {
                         <label>Žanr</label>
                         <input
                             type="text"
-                            placeholder="Action"
+                            placeholder="akcija, triler, horor.."
                             name="genre"
                             onChange={handleChange}
                         />
                     </div>
                     <div className={style.addProductItem}>
-                        <label>Type</label>
+                        <label>Tip</label>
                         <select name="type" onChange={handleChange}>
-                            <option>Type</option>
-                            <option value="film">Filmovi</option>
-                            <option value="serija">Serije</option>
+                            <option>Tip</option>
+                            <option value="film">Film</option>
+                            <option value="serija">Serija</option>
                         </select>
                     </div>
                 </div>
@@ -73,11 +83,12 @@ export default function NewList() {
                             multiple
                             name="content"
                             onChange={handleSelect}
-                            style={{ height: "280px" }}
+                            style={{ height: "280px", color: "black"}}
                         >
-                            {movies.map((movie) => (
-                                <option key={movie._id} value={movie._id}>
-                                    {movie.title}
+                            {movies.map((film) => (
+                                <option key={film._id} value={film._id}>
+                                    {film.title === undefined ? "Nema filmova" : film.title}
+
                                 </option>
                             ))}
                         </select>

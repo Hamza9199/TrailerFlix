@@ -1,14 +1,14 @@
 :root {
-  --main-color: #1a1a1a; /* Slightly lighter for better contrast */
-  --accent-color: #e50914; /* Netflix-like red for accent */
-  --text-color: #ffffff; /* White text color */
+  --main-color: #1a1a1a;
+  --accent-color: #e50914;
+  --text-color: #ffffff;
   --background-gradient: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* A cool gradient background */
-  --background-color: #0b0b0b; /* Main background color */
+  --background-color: #0b0b0b;
 }
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif; /* Modern font */
+  font-family: 'Roboto', sans-serif;
   background: var(--background-color);
   color: var(--text-color);
 }

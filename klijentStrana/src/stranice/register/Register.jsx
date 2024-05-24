@@ -2,7 +2,7 @@ import style from "./Register.module.css";
 import axios from "axios";
 import { useRef } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {Link, useHref, useNavigate} from "react-router-dom";
 import logo from "../../assets/g3.png";
 
 
@@ -16,6 +16,23 @@ export default function Register() {
     const passwordRef = useRef();
     const usernameRef = useRef();
 
+    const handleStart = () => {
+        setEmail(emailRef.current.value);
+    }
+
+    const handleFinish = async (e) => {
+        e.preventDefault();
+        setPassword(passwordRef.current.value);
+        setUsername(usernameRef.current.value);
+        try {
+            await axios.post("http://localhost:8888/server/autentifikacija/registracija",
+                { email, username, password });
+            history("/login");
+        }catch(err){
+            console.log(err);
+        }
+    }
+
 
 
     return (
@@ -27,7 +44,7 @@ export default function Register() {
                         src={logo}
                         alt="logo"
                     />
-                    <button className={style.loginButton} >Prijavi se</button>
+                    <button onClick={() => useHref("http://localhost:5173/login")} className={style.loginButton} >Prijavi se</button>
                 </div>
             </div>
             <div className={style.container}>
@@ -39,7 +56,7 @@ export default function Register() {
                 {!email ? (
                     <div className={style.input}>
                         <input type="email" placeholder="email adresa" ref={emailRef} />
-                        <button className={style.registerButton}>
+                        <button className={style.registerButton} onClick={handleStart}>
                             Krenimo!
                         </button>
                     </div>
@@ -47,7 +64,7 @@ export default function Register() {
                     <form className={style.input}>
                         <input type="username" placeholder="username" ref={usernameRef} />
                         <input type="password" placeholder="sifra" ref={passwordRef} />
-                        <button className={style.registerButton}>
+                        <button className={style.registerButton} onClick={handleFinish}>
                             Počni!
                         </button>
                     </form>

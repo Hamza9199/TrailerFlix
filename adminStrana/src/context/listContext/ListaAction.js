@@ -1,3 +1,4 @@
+// Action Creators
 export const getListsStart = () => ({
     type: "GET_LISTE_START",
 });
@@ -28,9 +29,9 @@ export const updateListStart = () => ({
     type: "UPDATE_LISTE_START",
 });
 
-export const updateListSuccess = (movie) => ({
+export const updateListSuccess = (list) => ({
     type: "UPDATE_LISTE_SUCCESS",
-    payload: movie,
+    payload: list,
 });
 
 export const updateListFailure = () => ({

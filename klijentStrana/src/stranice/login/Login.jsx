@@ -2,16 +2,23 @@ import { useContext, useState } from "react";
 
 import logo from '../../assets/g3.png';
 import style from "./Login.module.css";
+import {loginCall} from "../../context/authContext/serverCall.js";
+import {AuthContext} from "../../context/authContext/AuthContext.jsx";
 
 
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const {dispatch} = useContext(AuthContext);
+
 
     const handleLogin = (e) => {
         e.preventDefault();
-    };
+        loginCall({email, password}, dispatch);
+    }
+
+
     return (
         <div className={style.login}>
             <div className={style.top}>

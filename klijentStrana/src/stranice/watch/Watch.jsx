@@ -9,7 +9,7 @@ const Watch = () => {
     const navigate = useNavigate();
     const filmData = localStorage.getItem("film");
     const film = filmData ? JSON.parse(filmData) : null;
-    film.trailer = templateVideo;
+
     useEffect(() => {
         if (!film) {
             console.log("Film nije dostupan");

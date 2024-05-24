@@ -57,14 +57,18 @@ export default function ListList() {
 
     return (
         <div className={style.productList}>
-            <DataGrid
-                rows={lists}
-                disableSelectionOnClick
-                columns={columns}
-                pageSize={8}
-                checkboxSelection
-                getRowId={(r) => r._id}
-            />
+            {lists ? (
+                <DataGrid
+                    rows={lists}
+                    disableSelectionOnClick
+                    columns={columns}
+                    pageSize={8}
+                    checkboxSelection
+                    getRowId={(r) => r._id}
+                />
+            ) : (
+                <p>Loading...</p>
+            )}
         </div>
     );
 }

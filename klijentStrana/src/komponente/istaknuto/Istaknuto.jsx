@@ -7,11 +7,10 @@ import {Link, useLocation} from "react-router-dom";
 export default function Istaknuto({ tip, setGenre }) {
     const [content, setContent] = useState(null);
     const [error, setError] = useState(null);
-
     const location = useLocation();
 
     if (location.pathname.includes("/serije")) {
-        tip = 'film';
+        tip = 'serija'
     } else if (location.pathname.includes("/filmovi")) {
         tip = 'film';
     }
@@ -56,6 +55,7 @@ export default function Istaknuto({ tip, setGenre }) {
                     >
                         <option>Genre</option>
                         <option value="avantura">Avantura</option>
+                        <option value="akcija">Akcija</option>
                         <option value="komedija">Komedija</option>
                         <option value="krimi">Krimi</option>
                         <option value="fantazija">Fantazija</option>

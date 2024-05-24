@@ -15,6 +15,7 @@ import NoviFilm from './stranice/noviFilm/NoviFilm.jsx';
 import Listeliste from './stranice/listeListe/Listeliste.jsx';
 import Lista from './stranice/lista/Lista.jsx';
 import NovaLista from './stranice/novaLista/NovaLista.jsx';
+import {FilmContextProvider} from "./context/filmContext/FilmContext.jsx";
 
 function App() {
     const { user } = useContext(AuthContext);
@@ -24,6 +25,7 @@ function App() {
     }, [user]);
 
     return (
+        <FilmContextProvider>
         <Router>
             {user && <Topbar />}
             <div className="container">
@@ -44,6 +46,7 @@ function App() {
                 </Routes>
             </div>
         </Router>
+        </FilmContextProvider>
     );
 }
 

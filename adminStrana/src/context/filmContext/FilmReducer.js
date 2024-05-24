@@ -45,9 +45,10 @@ const FilmReducer = (state, action) => {
             }
         case "CREATE_FILM_SUCCESS":
             return {
-                films: [...state.films, action.payload],
+                ...state,
                 isFetching: false,
                 error: false,
+                films: [...state.filmovi, action.payload],
             }
         case "CREATE_FILM_FAILURE":
             return {

@@ -45,7 +45,7 @@ export const deleteFilm = async (id, dispatch) => {
 export const createFilm = async (film, dispatch) => {
     dispatch(createFilmStart());
     try {
-        const res = await axios.post("http://localhost:8888/server/filmovi", film, {
+        const res = await axios.post("http://localhost:8888/server/filmovi/dodaj", film,{
             headers: {
                 token: "Bearer " + JSON.parse(localStorage.getItem("korisnik")).accessToken,
             }

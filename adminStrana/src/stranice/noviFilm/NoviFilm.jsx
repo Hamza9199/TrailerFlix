@@ -1,11 +1,10 @@
 import { useContext, useState } from "react";
 import style from "./noviFilm.module.css";
-import storage from "../../fireBaseStorage.js";
+import storage from "../../fireBase.js";
 import {createFilm} from "../../context/filmContext/serverCallFilm.js";
 import {FilmContext} from "../../context/filmContext/FilmContext.jsx";
-import {getStorage} from "firebase/storage";
 
-export default function NewMovie() {
+export default function NoviFilm() {
     const [film, setFilm] = useState(null);
     const [img, setImg] = useState(null);
     const [imgTitle, setImgTitle] = useState(null);
@@ -18,34 +17,30 @@ export default function NewMovie() {
 
     const handleChange = (e) => {
         const value = e.target.value;
-        setFilm({ ...film, [e.target.name]: value });
+        setFilm({ ...film, [e.target.name]: value })
     };
 
     const upload = (items) => {
         items.forEach((item) => {
             const fileName = new Date().getTime() + item.label + item.file.name;
-            const uploadTask = storage.ref(`films/${fileName}`).put(item.file);
+            const uploadTask = storage.ref(`/items/${fileName}`).put(item.file);
             uploadTask.on(
                 "state_changed",
                 (snapshot) => {
                     const progress =
                         (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log(`Upload is ${progress}% done`);
+                    console.log("Upload is " + progress + "% done");
                 },
                 (error) => {
                     console.log(error);
                 },
                 () => {
-                    storage
-                        .ref("films")
-                        .child(fileName)
-                        .getDownloadURL()
-                        .then((url) => {
-                            setFilm((prev) => {
-                                return { ...prev, [item.label]: url };
-                            });
-                            setUploaded((prev) => prev + 1);
+                    uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+                        setFilm((prev) => {
+                            return { ...prev, [item.label]: url };
                         });
+                        setUploaded((prev) => prev + 1);
+                    });
                 }
             );
         });
@@ -66,6 +61,7 @@ export default function NewMovie() {
     const handleSubmit = (e) => {
         e.preventDefault();
         createFilm(film, dispatch);
+
     };
 
     return (
@@ -167,7 +163,7 @@ export default function NewMovie() {
                         onChange={(e) => setVideo(e.target.files[0])}
                     />
                 </div>
-                {uploaded === 0 ? (
+                {uploaded === 5 ? (
                     <button className={style.addProductButton} onClick={handleSubmit}>
                         Napravi
                     </button>
