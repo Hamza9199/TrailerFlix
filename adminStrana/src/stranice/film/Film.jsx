@@ -1,9 +1,38 @@
 import { Link } from "react-router-dom";
 import style from "./Film.module.css";
 import { Publish } from "@mui/icons-material";
+import { useContext, useState } from "react";
+import { FilmContext } from "../../context/filmContext/FilmContext.jsx";
+import { updateFilm } from "../../context/filmContext/serverCallFilm.js";
 
 export default function Film() {
-    const film = JSON.parse(localStorage.getItem("film"));
+    const [title, setTitle] = useState("");
+    const [year, setYear] = useState("");
+    const [genre, setGenre] = useState("");
+    const [limit, setLimit] = useState("");
+
+    const filmN = JSON.parse(localStorage.getItem("film"));
+    let { film, dispatch } = useContext(FilmContext);
+
+    film = filmN;
+
+    const handleUpdate = async (e) => {
+        e.preventDefault();
+        const updatedFilm = {
+            _id: film._id,
+            title: title || film.title,
+            year: year || film.year,
+            genre: genre || film.genre,
+            limit: limit || film.limit,
+        };
+
+        try {
+            const res = await updateFilm(film._id, updatedFilm, dispatch);
+            console.log("Film updated successfully:", res);
+        } catch (err) {
+            console.error("Failed to update film:", err);
+        }
+    };
 
     return (
         <div className={style.product}>
@@ -40,16 +69,16 @@ export default function Film() {
                 </div>
             </div>
             <div className={style.productBottom}>
-                <form className={style.productForm}>
+                <form className={style.productForm} onSubmit={handleUpdate}>
                     <div className={style.productFormLeft}>
                         <label>Movie Title</label>
-                        <input type="text" placeholder={film.title} />
+                        <input type="text" placeholder={film.title} onChange={(e) => setTitle(e.target.value)} />
                         <label>Year</label>
-                        <input type="text" placeholder={film.year} />
+                        <input type="text" placeholder={film.year} onChange={(e) => setYear(e.target.value)} />
                         <label>Genre</label>
-                        <input type="text" placeholder={film.genre} />
+                        <input type="text" placeholder={film.genre} onChange={(e) => setGenre(e.target.value)} />
                         <label>Limit</label>
-                        <input type="text" placeholder={film.limit} />
+                        <input type="text" placeholder={film.limit} onChange={(e) => setLimit(e.target.value)} />
                         <label>Trailer</label>
                         <input type="file" />
                         <label>Video</label>
@@ -67,7 +96,7 @@ export default function Film() {
                             </label>
                             <input type="file" id="file" style={{ display: "none" }} />
                         </div>
-                        <button className={style.productButton}>Update</button>
+                        <button type="submit" className={style.productButton}>Update</button>
                     </div>
                 </form>
             </div>

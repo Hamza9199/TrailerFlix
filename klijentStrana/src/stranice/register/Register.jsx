@@ -1,10 +1,8 @@
 import style from "./Register.module.css";
 import axios from "axios";
-import { useRef } from "react";
-import { useState } from "react";
-import {Link, useHref, useNavigate} from "react-router-dom";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/g3.png";
-
 
 export default function Register() {
     const [email, setEmail] = useState("");
@@ -28,12 +26,10 @@ export default function Register() {
             await axios.post("http://localhost:8888/server/autentifikacija/registracija",
                 { email, username, password });
             history("/login");
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     }
-
-
 
     return (
         <div className={style.register}>
@@ -44,7 +40,7 @@ export default function Register() {
                         src={logo}
                         alt="logo"
                     />
-                    <button onClick={() => useHref("http://localhost:5173/login")} className={style.loginButton} >Prijavi se</button>
+                    <button onClick={() => history("/login")} className={style.loginButton}>Prijavi se</button>
                 </div>
             </div>
             <div className={style.container}>

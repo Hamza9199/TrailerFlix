@@ -8,7 +8,7 @@ export default function NoviFilm() {
     const [film, setFilm] = useState(null);
     const [img, setImg] = useState(null);
     const [imgTitle, setImgTitle] = useState(null);
-    const [imgSm, setImgSm] = useState(null);
+    const [imgSmall, setImgSmall] = useState(null);
     const [trailer, setTrailer] = useState(null);
     const [video, setVideo] = useState(null);
     const [uploaded, setUploaded] = useState(0);
@@ -52,7 +52,7 @@ export default function NoviFilm() {
         upload([
             { file: img, label: "img" },
             { file: imgTitle, label: "imgTitle" },
-            { file: imgSm, label: "imgSm" },
+            { file: imgSmall, label: "imgSmall" },
             { file: trailer, label: "trailer" },
             { file: video, label: "video" },
         ]);
@@ -60,6 +60,7 @@ export default function NoviFilm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("Submitting film data:", film);
         createFilm(film, dispatch);
 
     };
@@ -78,7 +79,7 @@ export default function NoviFilm() {
                     />
                 </div>
                 <div className={style.addProductItem}>
-                    <label>Naslovna slika</label>
+                    <label>Slika deskripcije</label>
                     <input
                         type="file"
                         id="imgTitle"
@@ -90,9 +91,9 @@ export default function NoviFilm() {
                     <label>Mala slika</label>
                     <input
                         type="file"
-                        id="imgSm"
-                        name="imgSm"
-                        onChange={(e) => setImgSm(e.target.files[0])}
+                        id="imgSmall"
+                        name="imgSmall"
+                        onChange={(e) => setImgSmall(e.target.files[0])}
                     />
                 </div>
                 <div className={style.addProductItem}>
@@ -109,7 +110,7 @@ export default function NoviFilm() {
                     <input
                         type="text"
                         placeholder="deskripcija"
-                        name="desc"
+                        name="description"
                         onChange={handleChange}
                     />
                 </div>

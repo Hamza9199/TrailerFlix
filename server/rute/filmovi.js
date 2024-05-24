@@ -57,17 +57,16 @@ ruter.get('/nadji/:id', async (zahtjev, odgovor) => {
 
 ruter.get('/random', async (zahtjev, odgovor) => {
     const tip = zahtjev.query.type
-    const genre = zahtjev.query.genre
     let film;
     try {
         if (tip === 'serija') {
             film = await Film.aggregate([
-                { $match: { isSeries: true, genre: genre } },
+                { $match: { isSeries: true } },
                 { $sample: { size: 1 } }
             ]);
         } else if (tip === 'film') {
             film = await Film.aggregate([
-                { $match: { isSeries: false, genre: genre } },
+                { $match: { isSeries: false} },
                 { $sample: { size: 1 } }
             ]);
         } else {

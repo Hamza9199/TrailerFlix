@@ -10,50 +10,39 @@ export default function NewList() {
     const [list, setList] = useState({});
     const navigate = useNavigate();
 
-    const { dispatch } = useContext(ListContext);
-    const { dispatch: dispatchMovie } = useContext(FilmContext);
-    let movies = [{}];
+    const { dispatch: dispatchLista } = useContext(ListContext);
+    const { filmovi, dispatch } = useContext(FilmContext);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                getFilmovi(dispatchMovie);
-                movies = dispatchMovie
-            } catch (error) {
-                console.error("Error fetching movies:", error);
-            }
-        };
-
-        fetchData();
-    }, [dispatchMovie]);
+        getFilmovi(dispatch);
+    }, [dispatch]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setList((prev) => ({ ...prev, [name]: value }));
+        const value = e.target.value;
+        setList({ ...list, [e.target.name]: value });
     };
 
     const handleSelect = (e) => {
-        const { name, selectedOptions } = e.target;
-        const value = Array.from(selectedOptions, (option) => option.value);
-        setList((prev) => ({ ...prev, [name]: value }));
+        let value = Array.from(e.target.selectedOptions, (option) => option.value);
+        setList({ ...list, [e.target.name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        createList(list, dispatch);
+        createList(list, dispatchLista);
         navigate("/lista");
     };
 
     return (
         <div className={style.newProduct}>
-            <h1 className={style.addProductTitle}>Nova Lista</h1>
-            <form className={style.addProductForm} onSubmit={handleSubmit}>
+            <h1 className={style.addProductTitle}>Nova lista</h1>
+            <form className={style.addProductForm}>
                 <div className={style.formLeft}>
                     <div className={style.addProductItem}>
-                        <label>Naslov</label>
+                        <label>Title</label>
                         <input
                             type="text"
-                            placeholder="Film.."
+                            placeholder="Popularni filmovi"
                             name="title"
                             onChange={handleChange}
                         />
@@ -62,14 +51,14 @@ export default function NewList() {
                         <label>Žanr</label>
                         <input
                             type="text"
-                            placeholder="akcija, triler, horor.."
+                            placeholder="action"
                             name="genre"
                             onChange={handleChange}
                         />
                     </div>
                     <div className={style.addProductItem}>
                         <label>Tip</label>
-                        <select name="type" onChange={handleChange}>
+                        <select name="type" onChange={handleChange} className={style.select}>
                             <option>Tip</option>
                             <option value="film">Film</option>
                             <option value="serija">Serija</option>
@@ -83,18 +72,18 @@ export default function NewList() {
                             multiple
                             name="content"
                             onChange={handleSelect}
-                            style={{ height: "280px", color: "black"}}
+                            className={style.select}
+                            style={{ height: "280px" }}
                         >
-                            {movies.map((film) => (
-                                <option key={film._id} value={film._id}>
-                                    {film.title === undefined ? "Nema filmova" : film.title}
-
+                            {filmovi && filmovi.map((movie) => (
+                                <option key={movie._id} value={movie._id}>
+                                    {movie.title}
                                 </option>
                             ))}
                         </select>
                     </div>
                 </div>
-                <button className={style.addProductButton} type="submit">
+                <button className={style.addProductButton} onClick={handleSubmit}>
                     Kreiraj
                 </button>
             </form>

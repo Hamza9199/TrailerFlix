@@ -16,6 +16,10 @@ const Watch = () => {
         }
     }, [film]);
 
+    const handleHomeClick = () => {
+        navigate(-1);
+    };
+
     if (!film) {
         return (
             <div className={style.watch}>
@@ -26,7 +30,7 @@ const Watch = () => {
 
     return (
         <div className={style.watch}>
-            <div className={style.back} onClick={() => navigate(-1)}>
+            <div className={style.back} onClick={handleHomeClick}>
                 <ArrowBackOutlined />
                 Home
             </div>

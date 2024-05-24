@@ -1,74 +1,74 @@
 
-const FilmReducer = (state, action) => {
+const KorisnikReducer = (state, action) => {
     switch (action.type) {
-        case "GET_FILMS_START":
+        case "GET_KORISNIK_START":
             return {
-                filmovi: [],
+                korisnici: [],
                 isFetching: true,
                 error: false,
             }
-        case "GET_FILMS_SUCCESS":
+        case "GET_KORISNIK_SUCCESS":
             return {
-                filmovi: action.payload,
+                korisnici: action.payload,
                 isFetching: false,
                 error: false,
             }
-        case "GET_FILMS_FAILURE":
+        case "GET_KORISNIK_FAILURE":
             return {
-                filmovi: [],
+                korisnici: [],
                 isFetching: false,
                 error: true,
             }
-        case "DELETE_FILM_START":
+        case "DELETE_KORISNIK_START":
             return {
                 ...state,
                 isFetching: true,
                 error: false,
             }
-        case "DELETE_FILM_SUCCESS":
+        case "DELETE_KORISNIK_SUCCESS":
             return {
                 ...state,
                 isFetching: false,
                 error: false,
-                filmovi: state.filmovi.filter((film) => film._id !== action.payload),
+                korisnici: state.korisnici.filter((korisnik) => korisnik._id !== action.payload),
             }
-        case "DELETE_FILM_FAILURE":
-            return {
-                ...state,
-                isFetching: false,
-                error: true,
-            }
-        case "CREATE_FILM_START":
-            return {
-                ...state,
-                isFetching: true,
-                error: false,
-            }
-        case "CREATE_FILM_SUCCESS":
-            return {
-                filmovi: [...state.filmovi, action.payload],
-                isFetching: false,
-                error: false,
-            }
-        case "CREATE_FILM_FAILURE":
+        case "DELETE_KORISNIK_FAILURE":
             return {
                 ...state,
                 isFetching: false,
                 error: true,
             }
-        case "UPDATE_FILM_START":
+        case "CREATE_KORISNIK_START":
             return {
                 ...state,
                 isFetching: true,
                 error: false,
             }
-        case "UPDATE_FILM_SUCCESS":
+        case "CREATE_KORISNIK_SUCCESS":
             return {
-                filmovi: state.filmovi.map((film) => film._id === action.payload._id && action.payload),
+                korisnici: [...state.korisnici, action.payload],
                 isFetching: false,
                 error: false,
             }
-        case "UPDATE_FILM_FAILURE":
+        case "CREATE_KORISNIK_FAILURE":
+            return {
+                ...state,
+                isFetching: false,
+                error: true,
+            }
+        case "UPDATE_KORISNIK_START":
+            return {
+                ...state,
+                isFetching: true,
+                error: false,
+            }
+        case "UPDATE_KORISNIK_SUCCESS":
+            return {
+                korisnici: state.korisnici.map((korisnik) => korisnik._id === action.payload._id && action.payload),
+                isFetching: false,
+                error: false,
+            }
+        case "UPDATE_KORISNIK_FAILURE":
             return {
                 ...state,
                 isFetching: false,
@@ -79,4 +79,4 @@ const FilmReducer = (state, action) => {
     }
 }
 
-export default FilmReducer;
+export default KorisnikReducer;

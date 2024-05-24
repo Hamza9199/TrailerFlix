@@ -8,7 +8,7 @@ import {
     deleteListSuccess,
     getListsFailure,
     getListsStart,
-    getListsSuccess,
+    getListsSuccess, updateListFailure, updateListStart, updateListSuccess,
 } from "./ListaAction.js";
 
 export const getLists = async (dispatch) => {
@@ -54,3 +54,18 @@ export const deleteList = async (id, dispatch) => {
         dispatch(deleteListFailure());
     }
 };
+
+export const updateList = async (id, dispatch) => {
+    dispatch(updateListStart());
+    try {
+        const res = await axios.put(`http://localhost:8888/server/liste/${id}`, null, {
+            headers: {
+                token: "Bearer " + JSON.parse(localStorage.getItem("korisnik")).accessToken,
+            },
+        });
+        dispatch(updateListSuccess(res.data));
+    } catch (err) {
+        dispatch(updateListFailure());
+    }
+}
+

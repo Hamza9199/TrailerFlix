@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./topbar.css";
 import { NotificationsNone, Language, Settings } from "@mui/icons-material";
+import {logout} from "../../context/authContext/AuthAction.js";
+import {AuthContext} from "../../context/authContext/AuthContext.jsx";
 
 export default function Topbar() {
+
+  const {dispatch} = useContext(AuthContext);
+
   return (
       <div className="topbar">
         <div className="topbarWrapper">
@@ -12,7 +17,7 @@ export default function Topbar() {
           <div className="topRight">
 
             <div className="topbarIconContainer">
-              <span className="logoutTitle" >Logout</span>
+              <span className="logoutTitle" onClick={() => dispatch(logout())} >Logout</span>
             </div>
             <div className="topbarIconContainer">
               <Settings />

@@ -12,7 +12,6 @@ function Home() {
     const [genre, setGenre] = useState(null);
 
     const location = useLocation();
-
     let tip;
 
     if (location.pathname.includes("/serije")) {
@@ -27,8 +26,7 @@ function Home() {
     useEffect(() => {
         const getRandomLists = async () => {
             try {
-                const user = JSON.parse(localStorage.getItem("korisnik"));
-                const token = user ? user.accessToken : "";
+                const token = JSON.parse(localStorage.getItem("korisnik")).accessToken;
                 const res = await axios.get(
                     `http://localhost:8888/server/liste${tip ? "?type=" + tip : ""}${genre ? "&genre=" + genre : ""}`,
                     {

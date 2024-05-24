@@ -55,7 +55,7 @@ ruter.get("/nadji/:id", async (zahtjev, odgovor) => {
 
 
 ruter.get("/", verifikacija, async (zahtjev, odgovor) => {
-    console.log('Auth User:', zahtjev.korisnik);
+    console.log('Korisnik:', zahtjev.korisnik);
     const query = zahtjev.query.new;
     if(zahtjev.korisnik.isAdmin){
         try{
@@ -63,7 +63,7 @@ ruter.get("/", verifikacija, async (zahtjev, odgovor) => {
             console.log('Users found:', korisnici);
             odgovor.status(200).json(korisnici);
         } catch(greska){
-            console.error(greska);  // Log any errors
+            console.error(greska);
             odgovor.status(500).json(greska);
         }
     }

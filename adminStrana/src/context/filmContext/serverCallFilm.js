@@ -7,7 +7,7 @@ import {
     deleteFilmSuccess,
     getFilmsFailure,
     getFilmsStart,
-    getFilmsSuccess
+    getFilmsSuccess, updateFilmFailure, updateFilmStart, updateFilmSuccess
 } from "./FilmAction.js";
 
 
@@ -53,5 +53,20 @@ export const createFilm = async (film, dispatch) => {
         dispatch(createFilmSuccess(res.data))
     }catch(err){
         dispatch(createFilmFailure());
+    }
+}
+
+export const updateFilm = async (id, newData, dispatch) => {
+    dispatch(updateFilmStart());
+    try {
+        const token = JSON.parse(localStorage.getItem("korisnik")).accessToken;
+        const res = await axios.put(`http://localhost:8888/server/filmovi/${id}`, newData, {
+            headers: {
+                token: "Bearer " + token,
+            }
+        });
+        dispatch(updateFilmSuccess(res.data));
+    } catch (err) {
+        dispatch(updateFilmFailure());
     }
 }

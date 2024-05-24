@@ -30,8 +30,16 @@ export default function ListItem({ index, item }) {
         getMovie();
     }, [item]);
 
+    const handleClick = () => {
+        localStorage.removeItem("film");
+        localStorage.setItem("film", JSON.stringify(movie));
+    };
+
     return (
-        <Link to={{ pathname: "/watch", state: { movie: movie } }}>
+        <Link
+            to={{ pathname: "/watch", state: { movie: movie } }}
+            onClick={handleClick}
+        >
             <div
                 className={style.listItem}
                 style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}

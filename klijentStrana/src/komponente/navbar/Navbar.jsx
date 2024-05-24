@@ -46,9 +46,7 @@ function Navbar() {
             <div className={style.container}>
                 <div className={style.left}>
                     <img src={logo} alt="Logo" />
-                    <Link to="/" className={style.link}>
-                        <span>Home</span>
-                    </Link>
+                        <span><a href={"/"} className={style.link}>Home</a></span>
                     <Link to="/serije" className={style.link}>
                         <span className={style.navbarmainLinks}>Serije</span>
                     </Link>

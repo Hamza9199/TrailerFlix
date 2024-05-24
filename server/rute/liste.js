@@ -63,4 +63,18 @@ ruter.get('/', verifikacija, async (zahtjev, odgovor) => {
     }
 })
 
+ruter.put('/:id', verifikacija, async (zahtjev, odgovor) => {
+    if(zahtjev.korisnik.isAdmin){
+        try{
+            const azuriranaLista = await Lista.findByIdAndUpdate(zahtjev.params.id, {$set: zahtjev.body}, {new: true});
+            odgovor.json(azuriranaLista);
+        } catch(greska){
+            odgovor.json(greska);
+        }
+    }
+    else{
+        odgovor.status(403).json({poruka: 'Nemate pristup ovom resursu'});
+    }
+})
+
 module.exports = ruter;

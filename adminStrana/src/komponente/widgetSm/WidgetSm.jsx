@@ -11,7 +11,7 @@ export default function WidgetSm() {
             try {
                 const token = JSON.parse(localStorage.getItem("korisnik")).accessToken;
                 console.log('Token:', token);
-                const res = await axios.get(`http://localhost:8888/server/korisnici`, {
+                const res = await axios.get(`http://localhost:8888/server/korisnici?new=true`, {
                     headers: {
                         token: "Bearer " + token,
                     },

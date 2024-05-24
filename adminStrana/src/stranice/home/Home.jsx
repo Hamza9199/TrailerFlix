@@ -52,10 +52,9 @@ export default function Home() {
 
     return (
         <div className="home">
-            <Chart data={userStats} title="Statistika" grid={true} dataKey="Novi Korisnik" />
+            <Chart data={userStats} title="Statistika" grid={true} dataKey="Novi Korisnici" />
             <div className="homeWidgets">
                 <WidgetSm />
-                <WidgetLg />
             </div>
         </div>
     );

@@ -17,7 +17,7 @@ export const FilmContextProvider = ({ children }) => {
     return (
         <FilmContext.Provider
             value={{
-                filmovi: state.films,
+                filmovi: state.filmovi,
                 isFetching: state.isFetching,
                 error: state.error,
                 dispatch,

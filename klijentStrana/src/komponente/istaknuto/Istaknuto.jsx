@@ -36,6 +36,7 @@ export default function Istaknuto({ tip, setGenre }) {
     }, [tip]);
 
     const handlePlayClick = () => {
+        localStorage.removeItem("film");
         localStorage.setItem("film", JSON.stringify(content));
     };
 
@@ -71,27 +72,29 @@ export default function Istaknuto({ tip, setGenre }) {
                     </select>
                 </div>
             )}
+
             {content && (
                 <>
                     <img src={content.img} alt={content.title} />
                     <div className={style.info}>
-                        <img src={content.imgTitle} alt={content.title} />
-                        <span className={style.desc}>{content.desc}</span>
+                        <span className={style.title}>{content.title}</span>
+                        <span className={style.desc}>{content.description}</span>
                         <div className={style.buttons}>
-                            <Link to="/watch" onClick={handlePlayClick}>
+                            <Link to="/watch" onClick={handlePlayClick} className={style.link}>
                                 <button className={style.play}>
-                                    <PlayArrow />
+                                    <PlayArrow/>
                                     <span>Play</span>
                                 </button>
                             </Link>
                             <button className={style.more}>
-                                <InfoOutlined />
+                                <InfoOutlined/>
                                 <span>Info</span>
                             </button>
                         </div>
                     </div>
                 </>
             )}
+
         </div>
     );
 }
