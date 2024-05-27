@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./widgetSm.css";
 import { Visibility } from "@mui/icons-material";
 import axios from "axios";
+import {Link} from "react-router-dom";
+
 
 export default function WidgetSm() {
     const [newUser, setNewUser] = useState([]);
+
+    const handleEdit = (newUser) => {
+        localStorage.setItem("korisnikU", JSON.stringify(newUser));
+    }
+
 
     useEffect(() => {
         const getNewUser = async () => {
@@ -44,6 +51,7 @@ export default function WidgetSm() {
                             <Visibility className="widgetSmIcon" />
                             Prikazi
                         </button>
+
                     </li>
                 ))}
             </ul>
