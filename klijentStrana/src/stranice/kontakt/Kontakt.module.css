@@ -2,40 +2,66 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    margin-left: 50px;
+    margin-right: 150px;
+}
+
+.mapAndForm {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .mapContainer {
-    width: 100%;
-    margin-bottom: 20px;
+    flex: 1;
+    margin-top: 150px;
 }
 
 .content {
-    width: 100%;
+    flex: 1;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .kontaktContent {
     text-align: center;
+    margin-right: 200px;
 }
 
 .contactInfo {
     margin-bottom: 30px;
+    font-size: 1.1em;
+    color: white;
 }
 
 .contactForm {
-    max-width: 500px;
     margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
 }
 
 .contactForm input,
 .contactForm textarea {
     width: 100%;
     margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 15px;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 .contactForm textarea {
@@ -46,9 +72,11 @@
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 30px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
 }
 
 .contactForm button:hover {
