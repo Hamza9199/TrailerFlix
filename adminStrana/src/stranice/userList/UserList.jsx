@@ -1,10 +1,9 @@
-import style from "./userList.module.css";
+import React, { useContext, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import { useContext, useEffect } from "react";
-import {KorisnikContext} from "../../context/korisnikContext/KorisnikContext.jsx";
+import { KorisnikContext } from "../../context/korisnikContext/KorisnikContext.jsx";
 import { deleteKorisnici, getKorisnici } from "../../context/korisnikContext/serverCallKorisnik";
+import styles from "./userList.module.css";
 
 export default function UserList() {
     const { korisnici, dispatch } = useContext(KorisnikContext);
@@ -29,8 +28,7 @@ export default function UserList() {
             width: 200,
             renderCell: (params) => {
                 return (
-                    <div className={style.userListUser}>
-                        <img className={style.userListImg} src={params.row.avatar} alt="" />
+                    <div className={styles.userListUser}>
                         {params.row.username}
                     </div>
                 );
@@ -38,8 +36,8 @@ export default function UserList() {
         },
         { field: "email", headerName: "Email", width: 200 },
         {
-            field: "username"
-            , headerName: "Username",
+            field: "username",
+            headerName: "Username",
             width: 150,
         },
         {
@@ -60,14 +58,19 @@ export default function UserList() {
                 return (
                     <>
                         <Link to={`/user/${params.row._id}`}>
-                            <button className={style.userListEdit}
-                                    onClick={() => handleEdit(params.row)}
-                            >Uredi</button>
+                            <button
+                                className={styles.userListEdit}
+                                onClick={() => handleEdit(params.row)}
+                            >
+                                Uredi
+                            </button>
                         </Link>
-                        <DeleteOutline
-                            className={style.userListDelete}
+                        <button
+                            className={styles.userListDelete}
                             onClick={() => handleDelete(params.row._id)}
-                        />
+                        >
+                            Delete
+                        </button>
                     </>
                 );
             },
@@ -75,7 +78,7 @@ export default function UserList() {
     ];
 
     return (
-        <div className={style.userList}>
+        <div className={styles.userList}>
             {korisnici && korisnici.length > 0 && (
                 <DataGrid
                     rows={korisnici}

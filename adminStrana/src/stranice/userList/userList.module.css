@@ -1,9 +1,13 @@
 .userList {
-    flex: 4;
+    flex: 1;
+    padding: 10px;
+    margin: 20px;
+    margin-top: 70px;
+    align-items: center;
+    align-content: center;
   }
-  
+
   .userListUser {
-    display: flex;
     align-items: center;
   }
   
@@ -14,7 +18,8 @@
     object-fit: cover;
     margin-right: 10px;
   }
-  
+
+
   .userListEdit{
       border: none;
       border-radius: 10px;
@@ -22,10 +27,24 @@
       background-color: #3bb077;
       color: white;
       cursor: pointer;
-      margin-right: 20px;
+      margin-right: 15px;
   }
-  
-  .userListDelete{
-      color: red;
-      cursor: pointer;
-  }
+
+.userListActionCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.userListDelete {
+    cursor: pointer;
+    color: white; /* Optional: Customize the color of the delete icon */
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    height: 25px;
+    text-align: center;
+    padding: 5px 10px;
+}
+

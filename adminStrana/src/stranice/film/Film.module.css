@@ -1,23 +1,31 @@
 .product {
     flex: 4;
-    padding: 20px;
+    margin: 20px;
+    margin-top: 80px;
+    color: white;
 }
 
 .productTitleContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
 .productAddButton {
     width: 80px;
     border: none;
     padding: 5px;
-    background-color: teal;
+    background-color: #3bb077;
     color: white;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    margin-right: 23px;
 }
 
 .productTop {
@@ -47,6 +55,7 @@
 .productInfoTop {
     display: flex;
     align-items: center;
+    font-size: 25px;
 }
 
 .productName {
@@ -81,23 +90,29 @@
 .productForm {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-right: 60%;
 }
 
 .productFormLeft {
     display: flex;
     flex-direction: column;
+
 }
 
 .productFormLeft > label {
     margin-bottom: 10px;
-    color: gray;
+    color: lightgray;
+    padding-left: 5px;
 }
 
 .productFormLeft > input {
     margin-bottom: 10px;
     border: none;
     padding: 5px;
-    border-bottom: 1px solid gray;
+    padding-left: 10px;
+    height: 25px;
 }
 
 .productFormLeft >select{
@@ -126,8 +141,11 @@
 .productButton{
     border: none;
     padding: 5px;
-    border-radius: 5px;
-    background-color: darkblue;
+    height: 30px;
+    margin-top: 20px;
+    margin-right: 330px;
+    border-radius: 20px;
+    background-color: #037bff;
     color:white;
     font-weight: 600;
     cursor: pointer;

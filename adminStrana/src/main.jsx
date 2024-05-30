@@ -19,4 +19,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </FilmContextProvider>
     </AuthContextProvider>
   </React.StrictMode>,
+    document.getElementById('root')
 )

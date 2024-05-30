@@ -1,23 +1,16 @@
 .user {
     flex: 4;
-    padding: 20px;
+    margin-bottom: 100px;
+    margin-left:20px;
+    align-items: center;
+    align-content: center;
+    color: white;
   }
   
   .userTitleContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  .userAddButton {
-    width: 80px;
-    border: none;
-    padding: 5px;
-    background-color: teal;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    font-size: 16px;
   }
   
   .userContainer {
@@ -98,8 +91,10 @@
   
   .userUpdateForm{
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
       margin-top: 20px;
+
   }
   
   .userUpdateItem{
@@ -122,8 +117,9 @@
   
   .userUpdateRight{
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding-top: 70px;
+      padding-right: 400px;
+      height: 25px;
   }
   
   .userUpdateUpload{
@@ -139,16 +135,31 @@
       margin-right: 20px;
   }
   
-  .userUpdateIcon{
-      cursor: pointer;
-  }
-  
   .userUpdateButton{
-      border-radius: 5px;
+      border-radius: 17px;
       border: none;
-      padding: 5px;
+      height: 35px;
+      width: 70px;
       cursor: pointer;
-      background-color: darkblue;
+      background-color: #037bff;
       color: white;
-      font-weight: 600;
+  }
+
+  .userUpdateLeft
+  {
+      margin-right: 550px;
+  }
+
+  input
+  {
+      padding: 10px;
+      border-radius: 10px;
+  }
+
+  .userUpdateInput
+  {
+      padding: 10px;
+      border-radius: 10px;
+      width: 300px;
+      height: 37px;
   }

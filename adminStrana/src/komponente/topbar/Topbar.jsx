@@ -3,6 +3,7 @@ import "./topbar.css";
 import { NotificationsNone, Language, Settings } from "@mui/icons-material";
 import {logout} from "../../context/authContext/AuthAction.js";
 import {AuthContext} from "../../context/authContext/AuthContext.jsx";
+import logo from "../../../../klijentStrana/src/assets/g3.png"
 
 export default function Topbar() {
 
@@ -12,7 +13,7 @@ export default function Topbar() {
       <div className="topbar">
         <div className="topbarWrapper">
           <div className="topLeft">
-            <span className="logo">TrailerFlix Admin Panel</span>
+            <img className={"logo"} src={logo}/>
           </div>
           <div className="topRight">
 

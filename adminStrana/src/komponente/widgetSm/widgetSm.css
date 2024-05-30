@@ -4,16 +4,18 @@
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     padding: 20px 10px;
-    margin-right: 100px;
-    width: 200px;
-    background-color: #cccccc;
+    background-color: #2a2a2a;
+    height: 300px;
 }
 
 
 .widgetSmTitle {
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 600;
     padding-top: 20px;
+    padding-left: 10px;
+    font-family: "Bebas Neue";
+    color: #d9d9d9;
 }
 
 .widgetSmImg {
@@ -26,27 +28,33 @@
 .widgetSmList {
     margin: 0;
     padding: 0;
-    list-style: none;
+    display:flex;
+    padding-top: 200px;
+    justify-content: space-evenly;
 }
 
 .widgetSmListItem {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 10px;
+    margin: 20px 20px;
 }
 
 .widgetSmUser {
     display: flex;
     flex-direction: column;
+    padding-left: 10px;
 }
 
 .widgetSmUsername {
     font-weight: 600;
+    padding-bottom: 1px;
+    color: #d9d9d9;
 }
 
 .widgetSmUserTitle {
     font-weight: 300;
+    color: #d9d9d9;
 }
 
 .widgetSmButton {
@@ -55,12 +63,18 @@
     border: none;
     border-radius: 10px;
     padding: 7px 10px;
-    background-color: #eeeef7;
-    color: #555;
+    background-color: #222223;
+    color: #d9d9d9;
     cursor: pointer;
+    margin-left: 15px;
 }
 
 .widgetSmIcon {
     font-size: 16px !important;
     margin-right: 5px;
+}
+
+.widgetSmButton:hover{
+    background-color: #d9d9d9;
+    color: #2a2a2a;
 }

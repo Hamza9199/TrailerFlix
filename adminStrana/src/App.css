@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 
@@ -10,5 +10,5 @@
 }
 
 body{
-    background-color: #d3d3d3;
+    background-color: #222223;
 }

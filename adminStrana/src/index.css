@@ -1,0 +1,69 @@
+.MuiDataGrid-root .MuiDataGrid-columnHeader {
+    background-color: #222223 !important; /* Change to your desired background color */
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeaderTitle {
+    color: white !important; /* Change to your desired text color */
+    background-color: #222223 !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-columHeaderRow{
+    background-color: #222223 !important; /* Change to your desired background color */
+    color: white !important;
+
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeaderTitleContainer{
+    color: white !important;
+    background-color: #222223 !important; /* Change to your desired background color */
+
+}
+
+.MuiDataGrid-filler{
+    background-color: #222223 !important;
+    color: white !important;
+}
+
+.MuiDataGrid-menuIcon{
+    background-color: #222223 !important;
+    color: white !important;
+}
+
+.MuiDataGrid-virtualScrollerRenderZone
+{
+    color: white;
+}
+
+.MuiDataGrid-columnSeparator
+{
+    color: #222223 !important;
+    background-color: #222223;
+}
+
+.MuiDataGrid-columnSeparator:hover{
+    background-color: #222223 !important;
+}
+
+.MuiSvgIcon-root .MuiDataGrid-iconSeparator
+{
+    background-color: #222223;
+}
+
+.MuiDataGrid-footerContainer
+{
+    color: white;
+}
+
+.MuiToolbar-root
+{
+    color: white;
+}
+
+.MuiSvgIcon-root
+{
+    color: white;
+}
+
+path{
+    color: white;
+}

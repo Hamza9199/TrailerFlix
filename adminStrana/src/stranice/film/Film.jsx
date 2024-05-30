@@ -71,18 +71,18 @@ export default function Film() {
             <div className={style.productBottom}>
                 <form className={style.productForm} onSubmit={handleUpdate}>
                     <div className={style.productFormLeft}>
-                        <label>Movie Title</label>
+                        <label>Naziv Filma</label>
                         <input type="text" placeholder={film.title} onChange={(e) => setTitle(e.target.value)} />
-                        <label>Year</label>
+                        <label>Godina</label>
                         <input type="text" placeholder={film.year} onChange={(e) => setYear(e.target.value)} />
-                        <label>Genre</label>
+                        <label>Zanr</label>
                         <input type="text" placeholder={film.genre} onChange={(e) => setGenre(e.target.value)} />
                         <label>Limit</label>
                         <input type="text" placeholder={film.limit} onChange={(e) => setLimit(e.target.value)} />
                         <label>Trailer</label>
-                        <input type="file" />
+                        <input type="file"/>
                         <label>Video</label>
-                        <input type="file" />
+                        <input type="file"/>
                     </div>
                     <div className={style.productFormRight}>
                         <div className={style.productUpload}>

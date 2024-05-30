@@ -60,10 +60,12 @@ export default function FilmLista() {
                                 Uredi
                             </button>
                         </Link>
-                        <DeleteOutline
+                        <button
                             className={style.productListDelete}
                             onClick={() => handleDelete(params.row._id)}
-                        />
+                        >
+                            Delete
+                            </button>
                     </>
                 );
             },
