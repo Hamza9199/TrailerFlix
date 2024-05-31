@@ -60,5 +60,8 @@
 
   .logoutTitle{
       color: #d9d9d9;
+  }
 
+  .link{
+      text-decoration: none;
   }

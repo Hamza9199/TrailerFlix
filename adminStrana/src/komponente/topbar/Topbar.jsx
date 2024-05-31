@@ -4,6 +4,7 @@ import { NotificationsNone, Language, Settings } from "@mui/icons-material";
 import {logout} from "../../context/authContext/AuthAction.js";
 import {AuthContext} from "../../context/authContext/AuthContext.jsx";
 import logo from "../../../../klijentStrana/src/assets/g3.png"
+import {Link} from "react-router-dom";
 
 export default function Topbar() {
 
@@ -18,7 +19,9 @@ export default function Topbar() {
           <div className="topRight">
 
             <div className="topbarIconContainer">
+              <Link to={"/login"} className={"link"}>
               <span className="logoutTitle" onClick={() => dispatch(logout())} >Logout</span>
+              </Link>
             </div>
             <div className="topbarIconContainer">
               <Settings />

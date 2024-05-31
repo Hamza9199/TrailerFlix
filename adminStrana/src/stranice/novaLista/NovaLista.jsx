@@ -63,8 +63,12 @@ export default function NewList() {
                             <option value="film">Film</option>
                             <option value="serija">Serija</option>
                         </select>
+                        <button className={style.addProductButton} onClick={handleSubmit}>
+                            Kreiraj
+                        </button>
                     </div>
                 </div>
+
                 <div className={style.formRight}>
                     <div className={style.addProductItem}>
                         <label>Kontent</label>
@@ -73,7 +77,7 @@ export default function NewList() {
                             name="content"
                             onChange={handleSelect}
                             className={style.select}
-                            style={{ height: "280px" }}
+                            style={{height: "280px"}}
                         >
                             {filmovi && filmovi.map((movie) => (
                                 <option key={movie._id} value={movie._id}>
@@ -83,10 +87,8 @@ export default function NewList() {
                         </select>
                     </div>
                 </div>
-                <button className={style.addProductButton} onClick={handleSubmit}>
-                    Kreiraj
-                </button>
             </form>
         </div>
     );
 }
+
