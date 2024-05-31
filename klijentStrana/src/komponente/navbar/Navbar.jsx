@@ -53,7 +53,6 @@ function Navbar() {
                     <Link to="/filmovi" className={style.link}>
                         <span className={style.navbarmainLinks}>Filmovi</span>
                     </Link>
-                    <span>Novo i popularno</span>
                     {newAdmin.isAdmin && <Link to="http://localhost:9999/" className={style.link}>
                         <span>Admin</span>
                     </Link>}
@@ -69,7 +68,11 @@ function Navbar() {
                             <span>Postavke</span>
                         </div>
                     </div>
-                    <span className={style.odjavaText} onClick={() => dispatch(logout())}>Odjava</span>
+
+                        <Link to={"/login"} className={style.link}>
+                        <span className={style.odjavaText} onClick={() => dispatch(logout())}>Odjava</span>
+                        </Link>
+
                 </div>
             </div>
         </div>

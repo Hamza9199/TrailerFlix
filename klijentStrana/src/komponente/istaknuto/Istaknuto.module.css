@@ -1,11 +1,19 @@
-
 .featured {
-  height: 100vh;
+  height: calc(100vh - 70px);
   position: relative;
   overflow: hidden;
   color: white;
   z-index: 1;
+}
 
+.featured img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .category {
@@ -36,16 +44,6 @@
   color: var(--main-color);
 }
 
-.featured img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
 .info {
   width: 60%;
   position: absolute;
@@ -64,7 +62,7 @@
   order: 3;
 }
 
-.title{
+.title {
   font-size: 30px;
   font-weight: bold;
 }
@@ -99,7 +97,7 @@
   color: var(--main-color);
 }
 
-.link{
+.link {
   text-decoration: none;
 }
 
