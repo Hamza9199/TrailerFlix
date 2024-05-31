@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import style from './Login.module.css';
 import { AuthContext } from "../../context/authContext/AuthContext.jsx";
 import { loginCall } from "../../context/authContext/serverCall.js";
+import logo from "../../../../klijentStrana/src/assets/g3.png";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -16,31 +17,34 @@ export default function Login() {
 
     return (
         <div className={style.login}>
-            <form className={style.loginForm}>
+            <div className={style.loginKontent}>
+                <img className={style.loginLogo} src={logo} alt="Logo"/>
+                <form className={style.loginForm}>
                 <label>Email</label>
-                <input
-                    className={style.loginInput}
-                    type="text"
-                    placeholder="Unesite email..."
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <label>Lozinka</label>
-                <input
-                    className={style.loginInput}
-                    type="password"
-                    placeholder="Unesite lozinku..."
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button
-                    className={style.loginButton}
-                    onClick={handleLogin}
-                    disabled={isFetching}
-                >
-                    Uloguj se
-                </button>
-            </form>
+                    <input
+                        className={style.loginInput}
+                        type="text"
+                        placeholder="Unesite email..."
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <label>Lozinka</label>
+                    <input
+                        className={style.loginInput}
+                        type="password"
+                        placeholder="Unesite lozinku..."
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button
+                        className={style.loginButton}
+                        onClick={handleLogin}
+                        disabled={isFetching}
+                    >
+                        Uloguj se
+                    </button>
+                </form>
+            </div>
         </div>
     );
 }

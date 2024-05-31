@@ -1,8 +1,7 @@
 .sidebar {
-
     height: 650px;
     background-color: #2a2a2a;
-    position: sticky;
+    position: relative;
     top: 108px;
   }
   
