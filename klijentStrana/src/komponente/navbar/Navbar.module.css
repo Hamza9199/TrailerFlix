@@ -1,12 +1,13 @@
 .navbar {
   width: 100%;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   position: fixed;
   top: 0;
+  height: 70px;
   z-index: 999;
-  backdrop-filter: blur(20px);
-  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.3) 50%);
+  align-content: center;
+  background-color: #222223;
 }
 
 .container {
@@ -23,7 +24,7 @@
 }
 
 .left img {
-  height: 60px;
+  height: 90px;
   margin-right: 10px;
 }
 

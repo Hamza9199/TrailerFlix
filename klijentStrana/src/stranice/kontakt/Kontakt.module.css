@@ -3,31 +3,38 @@
     flex-direction: column;
     align-items: center;
     font-family: 'Arial', sans-serif;
+    margin-right: 50px;
     margin-left: 50px;
-    margin-right: 150px;
-}
-
-.mapAndForm {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
+    margin-top: 70px;
+    background-color: #222223;
 }
 
 .mapContainer {
-    flex: 1;
-    margin-top: 150px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+iframe
+{
+    width: 830px;
+    height: 500px;
 }
 
 .content {
-    flex: 1;
+    width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .kontaktContent {
     text-align: center;
-    margin-right: 200px;
 }
 
 .contactInfo {
@@ -53,9 +60,10 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
-    font-size: 1em;
     color: #333;
     transition: border-color 0.3s ease;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
 }
 
 .contactForm input:focus,
@@ -66,16 +74,17 @@
 
 .contactForm textarea {
     height: 150px;
+
 }
 
 .contactForm button {
-    background-color: #007bff;
+    background-color: #037bff;
     color: white;
     border: none;
     padding: 15px 30px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 15px;
     transition: background-color 0.3s ease;
 }
 
