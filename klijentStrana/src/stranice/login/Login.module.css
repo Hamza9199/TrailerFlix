@@ -5,6 +5,14 @@
   background-size: cover;
   position: relative;
 }
+.link{
+    color: white;
+    text-decoration: none;
+}
+
+.reg{
+  margin-left: 3px;
+}
 
 .wrapper {
   padding: 20px 50px;
@@ -14,9 +22,8 @@
 }
 
 .logo {
-  height: 120px;
-  width: 180px;
-  margin-top: 50px;
+  height: 150px;
+  width: 210px;
 }
 
 .container {
@@ -37,6 +44,7 @@
   height: 320px;
   padding: 30px;
   border-radius: 5px;
+  margin-top: 80px;
   background-color: var(--main-color);
   display: flex;
   flex-direction: column;

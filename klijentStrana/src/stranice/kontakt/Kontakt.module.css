@@ -3,10 +3,12 @@
     flex-direction: column;
     align-items: center;
     font-family: 'Arial', sans-serif;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin: 50px;
     margin-top: 70px;
     background-color: #222223;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .mapContainer {
@@ -17,10 +19,13 @@
     justify-content: center;
 }
 
-iframe
-{
-    width: 830px;
+iframe {
+    width: 100%;
+    max-width: 830px;
     height: 500px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .content {
@@ -35,21 +40,29 @@ iframe
 
 .kontaktContent {
     text-align: center;
+    width: 100%;
 }
 
 .contactInfo {
     margin-bottom: 30px;
     font-size: 1.1em;
-    color: white;
+    color: #bbb;
 }
 
 .contactForm {
     margin: 0 auto;
-    background-color: #f9f9f9;
-    padding: 20px;
+    background-color: #3d3d3d;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: black;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+
+}
+
+.contactForm h3 {
+    margin-bottom: 20px;
+    color: white;
 }
 
 .contactForm input,
@@ -60,21 +73,23 @@ iframe
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
-    color: #333;
-    transition: border-color 0.3s ease;
     font-family: 'Arial', sans-serif;
     font-size: 16px;
+    color: white;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #3d3d3d;
 }
 
 .contactForm input:focus,
 .contactForm textarea:focus {
     border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
     outline: none;
 }
 
 .contactForm textarea {
     height: 150px;
-
+    resize: none;
 }
 
 .contactForm button {
@@ -84,10 +99,16 @@ iframe
     padding: 15px 30px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 15px;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: 800;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contactForm button:hover {
     background-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 86, 179, 0.3);
+}
+
+.contactForm button:active {
+    background-color: #037bff;
 }

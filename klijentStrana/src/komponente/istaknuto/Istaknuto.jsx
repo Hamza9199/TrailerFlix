@@ -2,7 +2,7 @@ import { InfoOutlined, PlayArrow } from '@mui/icons-material';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import style from "./Istaknuto.module.css";
-import {Link, useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Istaknuto({ tip, setGenre }) {
     const [content, setContent] = useState(null);
@@ -10,12 +10,11 @@ export default function Istaknuto({ tip, setGenre }) {
     const location = useLocation();
 
     if (location.pathname.includes("/serije")) {
-        tip = 'serija'
+        tip = 'serija';
     } else if (location.pathname.includes("/filmovi")) {
         tip = 'film';
-    }
-    else{
-        tip = 'film'
+    } else {
+        tip = 'film';
     }
 
     useEffect(() => {
@@ -78,19 +77,20 @@ export default function Istaknuto({ tip, setGenre }) {
                     <img src={content.img} alt={content.title} />
                     <div className={style.info}>
                         <span className={style.title}>{content.title}</span>
-                        <span className={style.desc}>{content.description}</span>
-                        <div className={style.buttons}>
-                            <Link to="/watch" onClick={handlePlayClick} className={style.link}>
-                                <button className={style.play}>
-                                    <PlayArrow/>
-                                    <span>Play</span>
-                                </button>
-                            </Link>
+                        <div className={style.descAndButtons}>
+                            <span className={style.desc}>{content.description}</span>
+                            <div className={style.buttons}>
+                                <Link to="/watch" onClick={handlePlayClick} className={style.link}>
+                                    <button className={style.play}>
+                                        <PlayArrow />
+                                        <span>Play</span>
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </>
             )}
-
         </div>
     );
 }

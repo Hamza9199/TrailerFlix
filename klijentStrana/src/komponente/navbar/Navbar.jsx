@@ -69,7 +69,9 @@ function Navbar() {
                             <span>Postavke</span>
                         </div>
                     </div>
+                    <Link to={"/login"} className={style.link}>
                     <span className={style.odjavaText} onClick={() => dispatch(logout())}>Odjava</span>
+                    </Link>
                 </div>
             </div>
         </div>

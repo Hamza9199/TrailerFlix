@@ -44,11 +44,9 @@ export default function Register() {
                     src={logo}
                     alt="logo"
                 />
-                <h1>Beskonacno trejlera bilo kojeg žanra filma ili serije.</h1>
-                <h2>Gledaj svaki dan na TrailerFlix.</h2>
-                <p>
-                    Idemo! Unesi svoju email adresu da se registruješ.
-                </p>
+                <h1>Beskonacno trejlera bilo kojeg žanra filma ili serije</h1>
+                <h2>Gledaj svaki dan na TrailerFlix</h2>
+
                 {!email ? (
                     <div className={style.input}>
                         <input type="email" placeholder="email adresa" ref={emailRef}/>
@@ -57,10 +55,10 @@ export default function Register() {
                         </button>
                     </div>
                 ) : (
-                    <form className={style.input}>
-                        <input type="username" placeholder="username" ref={usernameRef}/>
+                    <form className={style.input2} onSubmit={handleFinish}>
+                        <input type="text" placeholder="username" ref={usernameRef}/>
                         <input type="password" placeholder="sifra" ref={passwordRef}/>
-                        <button className={style.registerButton} onClick={handleFinish}>
+                        <button className={style.registerButton} type="submit">
                             Počni!
                         </button>
                     </form>

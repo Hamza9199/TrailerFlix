@@ -2,12 +2,13 @@
   width: 100%;
   color: white;
   font-size: 17px;
+  font-weight: 550;
   position: fixed;
   top: 0;
   height: 70px;
   z-index: 999;
   align-content: center;
-  background-color: #222223;
+  backdrop-filter: blur(80px);
 }
 
 .container {
@@ -21,6 +22,7 @@
 .left {
   display: flex;
   align-items: center;
+  font-size: 17px;
 }
 
 .left img {
@@ -82,6 +84,7 @@
 .odjavaText {
   padding-right: 10px;
   cursor: pointer;
+  color: white;
 }
 
 .link {

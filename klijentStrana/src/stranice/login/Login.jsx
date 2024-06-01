@@ -4,6 +4,7 @@ import logo from '../../assets/g3.png';
 import style from "./Login.module.css";
 import {loginCall} from "../../context/authContext/serverCall.js";
 import {AuthContext} from "../../context/authContext/AuthContext.jsx";
+import {Link} from "react-router-dom";
 
 
 
@@ -47,8 +48,11 @@ export default function Login() {
                         Prijavi se
                     </button>
                     <span>
-            Novi na TrilerFlixu? <b>Registruj se!</b>
-          </span>
+            Novi na TrilerFlixu?
+                        <Link to={"/register"} className={style.link}>
+                        <b className={style.reg}>Registruj se!</b>
+                        </Link>
+                    </span>
                     <small>
                         Stranica je zašticena od strane Google reCAPTCHA. <b>Vidi vise</b>.
                     </small>
