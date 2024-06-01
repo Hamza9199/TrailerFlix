@@ -1,9 +1,10 @@
 .login {
   width: 100vw;
   height: 100vh;
-  background-image: url('https://as1.ftcdn.net/v2/jpg/04/00/16/48/1000_F_400164853_t34lgalYHoxZjfVCjdduom1naYFch9SR.jpg');
+  background-image: url('../../assets/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   position: relative;
 }
 .link{
