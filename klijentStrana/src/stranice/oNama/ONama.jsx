@@ -3,6 +3,7 @@ import style from './ONama.module.css';
 
 import Navbar from '../../komponente/navbar/Navbar';
 import Footer from '../../komponente/footer/Footer';
+import logo from "../../assets/g3.png";
 
 function ONama() {
     return (
@@ -11,7 +12,12 @@ function ONama() {
             <div className={style.oNamaContainer1}>
                 <h2>O nama</h2>
             </div>
-                 <div className={style.oNamaContainer}>
+            <div className={style.oNamaContainer}>
+                <img
+                    className={style.logo}
+                    src={logo}
+                    alt="Logo"
+                />
                 <p>
                     "TrailerFlix" je revolucionarna web aplikacija koja nudi beskonačno iskustvo uživanja u najnovijim
                     filmskim trejlerima. S intuitivnim sučeljem i bogatim sadržajem, TrailerFlix je savršen izbor za sve

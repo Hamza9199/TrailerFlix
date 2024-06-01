@@ -7,9 +7,7 @@
   height: 70px;
   z-index: 999;
   align-content: center;
-  background-color: rgba(34, 34, 35, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(30px);
+  background-color: #222223;
 }
 
 .container {
@@ -27,6 +25,7 @@
 
 .left img {
   height: 90px;
+  width: 135px;
   margin-right: 10px;
 }
 
@@ -83,7 +82,6 @@
 .odjavaText {
   padding-right: 10px;
   cursor: pointer;
-  color: white;
 }
 
 .link {

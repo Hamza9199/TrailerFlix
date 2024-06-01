@@ -75,7 +75,7 @@ export default function Istaknuto({ tip, setGenre }) {
 
             {content && (
                 <>
-                    <img className={style.istaknutaSlika} src={content.img} alt={content.title} />
+                    <img src={content.img} alt={content.title} />
                     <div className={style.info}>
                         <span className={style.title}>{content.title}</span>
                         <span className={style.desc}>{content.description}</span>
@@ -86,7 +86,6 @@ export default function Istaknuto({ tip, setGenre }) {
                                     <span>Play</span>
                                 </button>
                             </Link>
-
                         </div>
                     </div>
                 </>

@@ -35,15 +35,15 @@ export default function Register() {
         <div className={style.register}>
             <div className={style.top}>
                 <div className={style.wrapper}>
-                    <img
-                        className={style.logo}
-                        src={logo}
-                        alt="logo"
-                    />
                     <button onClick={() => history("/login")} className={style.loginButton}>Prijavi se</button>
                 </div>
             </div>
             <div className={style.container}>
+                <img
+                    className={style.logo}
+                    src={logo}
+                    alt="logo"
+                />
                 <h1>Beskonacno trejlera bilo kojeg žanra filma ili serije.</h1>
                 <h2>Gledaj svaki dan na TrailerFlix.</h2>
                 <p>
@@ -51,15 +51,15 @@ export default function Register() {
                 </p>
                 {!email ? (
                     <div className={style.input}>
-                        <input type="email" placeholder="email adresa" ref={emailRef} />
+                        <input type="email" placeholder="email adresa" ref={emailRef}/>
                         <button className={style.registerButton} onClick={handleStart}>
                             Krenimo!
                         </button>
                     </div>
                 ) : (
                     <form className={style.input}>
-                        <input type="username" placeholder="username" ref={usernameRef} />
-                        <input type="password" placeholder="sifra" ref={passwordRef} />
+                        <input type="username" placeholder="username" ref={usernameRef}/>
+                        <input type="password" placeholder="sifra" ref={passwordRef}/>
                         <button className={style.registerButton} onClick={handleFinish}>
                             Počni!
                         </button>

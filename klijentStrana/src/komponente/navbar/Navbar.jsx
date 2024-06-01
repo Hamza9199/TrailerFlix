@@ -53,6 +53,7 @@ function Navbar() {
                     <Link to="/filmovi" className={style.link}>
                         <span className={style.navbarmainLinks}>Filmovi</span>
                     </Link>
+
                     {newAdmin.isAdmin && <Link to="http://localhost:9999/" className={style.link}>
                         <span>Admin</span>
                     </Link>}
@@ -63,16 +64,12 @@ function Navbar() {
                     <Notifications className={style.icon} />
                     <img src={template} alt="template" />
                     <div className={style.profile}>
-                        <ArrowDropDown className={style.icon} />
+                        <ArrowDropDown className={style.icon}/>
                         <div className={style.options}>
                             <span>Postavke</span>
                         </div>
                     </div>
-
-                        <Link to={"/login"} className={style.link}>
-                        <span className={style.odjavaText} onClick={() => dispatch(logout())}>Odjava</span>
-                        </Link>
-
+                    <span className={style.odjavaText} onClick={() => dispatch(logout())}>Odjava</span>
                 </div>
             </div>
         </div>
