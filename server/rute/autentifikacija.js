@@ -36,7 +36,7 @@ ruter.post('/login', async (zahtjev, odgovor) => {
 
         if (originalPassword !== password) {
             console.log("Passwords do not match");
-           // return odgovor.status(401).json('Pogrešna sifra ili username!');
+           return odgovor.status(401).json('Pogrešna sifra ili username!');
         }
 
         const accessToken = jwt.sign({

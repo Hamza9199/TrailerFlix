@@ -39,7 +39,7 @@
 
 .userListDelete {
     cursor: pointer;
-    color: white; /* Optional: Customize the color of the delete icon */
+    color: white;
     background-color: red;
     border: none;
     border-radius: 10px;

@@ -1,4 +1,4 @@
-import ListReducer from "./ListaReducer"; // Corrected import
+import ListReducer from "./ListaReducer";
 
 import { createContext, useReducer } from "react";
 

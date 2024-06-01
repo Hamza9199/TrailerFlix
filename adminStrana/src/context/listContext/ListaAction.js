@@ -1,4 +1,3 @@
-// Action Creators
 export const getListsStart = () => ({
     type: "GET_LISTE_START",
 });

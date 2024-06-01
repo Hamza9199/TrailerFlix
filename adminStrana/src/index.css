@@ -1,21 +1,21 @@
 .MuiDataGrid-root .MuiDataGrid-columnHeader {
-    background-color: #222223 !important; /* Change to your desired background color */
+    background-color: #222223 !important;
 }
 
 .MuiDataGrid-root .MuiDataGrid-columnHeaderTitle {
-    color: white !important; /* Change to your desired text color */
+    color: white !important;
     background-color: #222223 !important;
 }
 
 .MuiDataGrid-root .MuiDataGrid-columHeaderRow{
-    background-color: #222223 !important; /* Change to your desired background color */
+    background-color: #222223 !important;
     color: white !important;
 
 }
 
 .MuiDataGrid-root .MuiDataGrid-columnHeaderTitleContainer{
     color: white !important;
-    background-color: #222223 !important; /* Change to your desired background color */
+    background-color: #222223 !important;
 
 }
 
