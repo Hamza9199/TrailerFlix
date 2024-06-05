@@ -39,7 +39,7 @@ const Watch = () => {
                 autoPlay
                 controls
                 playsInline
-                src={film.trailer}
+                src={film.video}
             />
         </div>
     );

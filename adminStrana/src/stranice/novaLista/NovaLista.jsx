@@ -81,7 +81,7 @@ export default function NewList() {
                         >
                             {filmovi && filmovi.map((movie) => (
                                 <option key={movie._id} value={movie._id}>
-                                    {movie.title}
+                                    {movie.title} - {movie.genre} - {movie.isSeries ? "Serija" : "Film"}
                                 </option>
                             ))}
                         </select>
