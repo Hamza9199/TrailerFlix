@@ -36,3 +36,13 @@
     margin-top: 20px;
     width: 130px;
 }
+
+@media (max-width: 768px) {
+    .footerContent {
+        flex-direction: column;
+    }
+
+    .contactSection, .linkSection {
+        margin-bottom: 20px;
+    }
+}

@@ -47,3 +47,14 @@
   transform: translateX(0px);
   transition: all 1s ease;
 }
+
+
+@media (max-width: 768px) {
+  .listTitle {
+    margin-left: 20px;
+  }
+
+  .container {
+    margin-left: 20px;
+  }
+}

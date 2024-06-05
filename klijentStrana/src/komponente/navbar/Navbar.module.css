@@ -3,7 +3,7 @@
   color: white;
   font-size: 17px;
   font-weight: 550;
-  position: fixed;
+  position:fixed;
   top: 0;
   height: 70px;
   z-index: 999;
@@ -89,4 +89,71 @@
 
 .link {
   text-decoration: none;
+}
+
+
+@media screen and (max-width: 960px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .left img {
+    height: 70px;
+    width: 105px;
+    margin-right: 5px;
+  }
+
+  .left span,
+  .left .link {
+    margin-right: 10px;
+  }
+
+  .right img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .right .icon {
+    margin: 0 5px;
+  }
+
+  .pretrazivanje {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .left img {
+    height: 60px;
+    width: 90px;
+    margin-right: 4px;
+    }
+
+  .left span,
+  .left .link {
+    margin-right: 4px;
+  }
+
+  .right img {
+    width: 20px;
+    height: 20px;
+    display: none;
+  }
+
+  .right .icon {
+    margin: 0 5px;
+  }
+  
+  .admin{
+    display: none;
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .icon {
+    display: none;
+  }
+
 }

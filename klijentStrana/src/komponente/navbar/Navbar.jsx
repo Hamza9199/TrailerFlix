@@ -46,7 +46,7 @@ function Navbar() {
             <div className={style.container}>
                 <div className={style.left}>
                     <img src={logo} alt="Logo" />
-                        <span><a href={"/"} className={style.link}>Home</a></span>
+                        <span className={style.admin}><a href={"/"} className={style.link}>Home</a></span>
                     <Link to="/serije" className={style.link}>
                         <span className={style.navbarmainLinks}>Serije</span>
                     </Link>
@@ -55,13 +55,13 @@ function Navbar() {
                     </Link>
 
                     {newAdmin.isAdmin && <Link to="http://localhost:9999/" className={style.link}>
-                        <span>Admin</span>
+                        <span className={style.admin}>Admin</span>
                     </Link>}
                 </div>
                 <div className={style.right}>
-                    <Search className={style.icon} />
-                    <span>Pretrazivanje</span>
-                    <Notifications className={style.icon} />
+                    <span className={style.admin}> <Search className={style.icon} /> </span>
+                    <span className={style.pretrazivanje}>Pretrazivanje</span>
+                    <span className={style.admin}> <Notifications className={style.icon}/> </span>
                     <img src={template} alt="template" />
                     <div className={style.profile}>
                         <ArrowDropDown className={style.icon}/>
