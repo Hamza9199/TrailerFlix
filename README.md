@@ -1,9 +1,11 @@
 # TrailerFlix
 
 Tehnologije: React, Node.js, Express, MongoDB
+
 Opis: Web aplikacija za pregled i organizaciju filmskih trejlera, razvijena u okviru kursa Web dizajna na Politehničkom fakultetu
 Univerziteta u Zenici. Projekt omogućava korisnicima pretragu i pregled trejlera filmova te uključuje autentifikaciju korisnika,
 korisnički dashboard i admin panel za upravljanje sadržajem. 
+
 Ključne karakteristike:
 Glavni dijelovi: Home Page, autentifikacija (Register i Login), user
 dashboard, admin panel.
